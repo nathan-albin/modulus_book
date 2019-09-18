@@ -1,0 +1,8 @@
+*~
+*.pyc
+build_html/
+.ipynb_checkpoints/
+Pipfile
+Pipfile.lock
+References.html
+References_bib.html
