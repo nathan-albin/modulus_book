@@ -77,10 +77,12 @@ div.text_cell_render em {
 }
 
 div.text_cell_render code {
+	padding: 0em;
 	background-color: #fff;
 	color: #000;
-	font-weight: 700;
+	font-weight: 600;
 	font-family: monospace;
+	font-size: 85%;
 }
 
 div.MathJax_Display {

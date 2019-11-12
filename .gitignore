@@ -1,6 +1,6 @@
 *~
 *.pyc
-build_html/
+html/
 .ipynb_checkpoints/
 Pipfile
 Pipfile.lock

@@ -7,10 +7,11 @@ import subprocess
 from shutil import rmtree, copy
 import re
 
-build_dir = 'build_html'
-code_dir = 'modulus_tools'
-template_file = 'html.tpl'
-bib_file = 'References'
+build_dir     = '../html/'
+notebook_dir  = '../notebooks/'
+code_dir      = 'modulus_tools/'
+template_file = '../templates/html.tpl'
+bib_file      = 'References'
 
 chapters = ['Contents', 
 			'Introduction',
@@ -20,51 +21,50 @@ chapters = ['Contents',
 bib_entry = re.compile(r'\[<a name="(.*)">(.*)</a>\]')
 
 # regular expression for code links
-code_link = re.compile('<a href=".*">(' + code_dir + '/' + '.*)\\.py</a>')
-
-# create the build directory if it doesn't exist
-if not os.path.exists(build_dir):
-    os.mkdir(build_dir)
+code_link = re.compile('<a href=".*">(' + code_dir + '.*)\\.py</a>')
 
 # delete the modulus code files from the build directory
-if os.path.exists(build_dir + '/' + code_dir):
-    rmtree(build_dir + '/' + code_dir)
+if os.path.exists(build_dir + code_dir):
+    rmtree(build_dir + code_dir)
 
 # process the bibfile data
 bibdata = {}
 print('Processing bib file...')
-with open(bib_file + '.html') as f:
+with open(build_dir + bib_file + '.html') as f:
     for line in f:
         match = bib_entry.search(line)
         if match:
             bibdata[match.group(1)] = match.group(2)
 
 # walk through the code directory
-for root, _, files in os.walk(code_dir):
+for root, _, files in os.walk(notebook_dir + code_dir):
+
+    loc_dir = root[len(notebook_dir):]
 
     # skip ipynb hidden files
     if root.find('.ipynb_checkpoints') == -1:
 
         # create the root directory in build
-        os.mkdir(build_dir + '/' + root)
+        os.mkdir(build_dir + loc_dir)
 
         # pygmentize .py files
         for f in files:
             if f[-3:] == '.py':
                 
                 args = ['pygmentize', '-f', 'html', '-O', 'full,linenos=1',
-                        '-o', build_dir + '/' + root + '/' + f[:-3] + '_py.html',
+                        '-o', build_dir + loc_dir + '/' + f[:-3] + '_py.html',
                         root + '/' + f ]
-                print('Pygmentizing {}...'.format(root + '/' + f))
+                print('Pygmentizing {}...'.format(root + f))
                 subprocess.check_call(args)
     
 for i, chapter in enumerate(chapters):
-    source_file = chapter + '.ipynb'
-    target_file = build_dir  + '/' + chapter + '.html'
+    source_file = notebook_dir + chapter + '.ipynb'
+    target_file = build_dir  + chapter + '.html'
     print()
     print('-------------------------------------')
     print('Processing {}...'.format(source_file))
 
+    # run nbconvert
     args = ['jupyter', 'nbconvert', '--to', 'html', '--execute',
             '--ExecutePreprocessor.kernel_name=python',
             '--template', template_file,
