@@ -12,6 +12,7 @@ In order to run the code for yourself, you'll need a Python environment.  The cu
 - numpy
 - matplotlib
 - cvxpy
+
 Once your Python environment is set up, you should start jupyter notebook and navigate into the `notebooks` directory.  There you will find the notebook files used to generate the book.  (Note: many links may not work in the notebook text.  These notebooks were designed to generate the book, and links are processed specially by the build code.)  You can also find the essential modulus library code in `notebooks/modulus_tools`.
 
 ## Building the book
