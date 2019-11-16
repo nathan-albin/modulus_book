@@ -12,6 +12,7 @@ notebook_dir  = '../notebooks/'
 code_dir      = 'modulus_tools/'
 template_file = '../templates/html.tpl'
 bib_file      = 'References'
+github_base   = 'https://github.com/nathan-albin/modulus_book/blob/master/notebooks/'
 
 chapters = ['Contents', 
 			'Introduction',
@@ -21,11 +22,7 @@ chapters = ['Contents',
 bib_entry = re.compile(r'\[<a name="(.*)">(.*)</a>\]')
 
 # regular expression for code links
-code_link = re.compile('<a href=".*">(' + code_dir + '.*)\\.py</a>')
-
-# delete the modulus code files from the build directory
-if os.path.exists(build_dir + code_dir):
-    rmtree(build_dir + code_dir)
+code_link = re.compile('<a href=".*">(' + code_dir + '.*)</a>')
 
 # process the bibfile data
 bibdata = {}
@@ -36,27 +33,7 @@ with open(build_dir + bib_file + '.html') as f:
         if match:
             bibdata[match.group(1)] = match.group(2)
 
-# walk through the code directory
-for root, _, files in os.walk(notebook_dir + code_dir):
-
-    loc_dir = root[len(notebook_dir):]
-
-    # skip ipynb hidden files
-    if root.find('.ipynb_checkpoints') == -1:
-
-        # create the root directory in build
-        os.mkdir(build_dir + loc_dir)
-
-        # pygmentize .py files
-        for f in files:
-            if f[-3:] == '.py':
-                
-                args = ['pygmentize', '-f', 'html', '-O', 'full,linenos=1',
-                        '-o', build_dir + loc_dir + '/' + f[:-3] + '_py.html',
-                        root + '/' + f ]
-                print('Pygmentizing {}...'.format(root + f))
-                subprocess.check_call(args)
-    
+# process chapters
 for i, chapter in enumerate(chapters):
     source_file = notebook_dir + chapter + '.ipynb'
     target_file = build_dir  + chapter + '.html'
@@ -89,7 +66,7 @@ for i, chapter in enumerate(chapters):
 
     # replace any links to the code
     print('Replacing links to code...')
-    content = code_link.sub('<a href="\\1_py.html">\\1.py</a>', content)
+    content = code_link.sub('<a href="{}\\1">\\1</a>'.format(github_base), content)
 
     # replace citations
     print('Replacing citations...')
