@@ -8,6 +8,7 @@ import subprocess
 bibdir  = '../references/'
 bibfile = 'References'
 htmldir = '../html/'
+cssfile = 'modulus_book.css'
 
 # get rid of comments in bib file
 lines = []
@@ -30,7 +31,9 @@ args = ['bib2bib',
 subprocess.check_call(args)
 
 # process with bibtex2html
-args = ['bibtex2html', bibdir + bibfile + '.bib']
+args = ['bibtex2html', 
+	'-css', cssfile,
+	bibdir + bibfile + '.bib']
 subprocess.check_call(args)
 
 # move html files ot html directory

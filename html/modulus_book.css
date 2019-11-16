@@ -1,3 +1,22 @@
+body {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.1em;
+	line-height: 1.2;
+}
+
+h1 {
+	font-family: "PT Serif", "Times New Roman", Times, serif;
+	font-size: 1.75em;
+}
+
+.bibtexnumber {
+	padding-right: 1em;
+}
+
+.bibtexitem {
+	padding-bottom: 1em;
+}
+
 div.title {
 	font-family: "PT Serif", "Times New Roman", Times, serif;
 	text-align: center;
