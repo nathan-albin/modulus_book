@@ -16,7 +16,8 @@ github_base   = 'https://github.com/nathan-albin/modulus_book/blob/master/notebo
 
 chapters = ['Contents', 
 			'Introduction',
-			'The_Basic_Algorithm']
+			'The_Basic_Algorithm',
+            'Dual_Families']
 
 # regular expression for bib entries in html file
 bib_entry = re.compile(r'\[<a name="(.*)">(.*)</a>\]')
