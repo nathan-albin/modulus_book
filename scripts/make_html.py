@@ -64,12 +64,19 @@ for i, chapter in enumerate(chapters):
     print('-------------------------------------')
     print('Processing {}...'.format(source_file))
 
-    # run nbconvert
-    args = ['jupyter', 'nbconvert', '--to', 'html', '--execute',
-            '--ExecutePreprocessor.kernel_name=python',
-            '--template', template_file,
-            '--output', target_file, source_file]
-    subprocess.check_call(args)
+    # check if the html file already exists
+    if os.path.isfile(target_file) and os.path.getmtime(source_file) <= os.path.getmtime(target_file):
+
+        print('  {} is up to date'.format(target_file))
+
+    else:
+
+        # run nbconvert
+        args = ['jupyter', 'nbconvert', '--to', 'html', '--execute',
+                '--ExecutePreprocessor.kernel_name=python',
+                '--template', template_file,
+                '--output', target_file, source_file]
+        subprocess.check_call(args)
 
     # post-process files
     with open(target_file, 'r') as f:
