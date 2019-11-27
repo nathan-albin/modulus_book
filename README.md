@@ -2,7 +2,7 @@
 An introduction to discrete modulus concepts and algorithms through Jupyter notebooks.
 
 ## Reading the book
-The easiest way to read the book is in HTML form.  A current copy of the book can be found [here]().
+The easiest way to read the book is in HTML form.  A current copy of the book can be found [here](https://node.math.ksu.edu/modulus_book/Contents.html).
 
 ## Running the code
 In order to run the code for yourself, you'll need a Python environment.  The current version of the book is developed using the [pipenv](https://github.com/pypa/pipenv) tool to manage the environment.  If you use pipenv, then everything you need is contained in `Pipfile` and `Pipfile.lock`.  If you have some other way of managing your Python environment, then you'll want to look at `Pipfile` for a list of important packages.  These include
