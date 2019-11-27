@@ -202,6 +202,7 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
         
         # if not, we need to add a constraint
         N = sp.vstack([N,n], format='csr')
+        cons.append(c)
         
         # re-optimize
         start = clock()
