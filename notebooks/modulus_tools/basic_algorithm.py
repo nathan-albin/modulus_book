@@ -35,6 +35,8 @@ def matrix_modulus(N, p=2, sigma=None):
     
     import cvxpy as cvx
     import numpy as np
+
+    from warnings import warn
     
     # problem dimension
     m = N.shape[1]
