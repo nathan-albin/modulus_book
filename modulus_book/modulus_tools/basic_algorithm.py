@@ -54,12 +54,12 @@ def matrix_modulus(N, p=2, sigma=None):
     
     # objective
     if p is not np.inf:
-        obj = cvx.Minimize(sigma.T*rho**p)
+        obj = cvx.Minimize(sigma.T@rho**p)
     else:
         obj = cvx.Minimize(cvx.max(cvx.multiply(sigma, rho)))
         
     # constraints
-    cons = [rho >= 0, N*rho >= 1]
+    cons = [rho >= 0, N@rho >= 1]
     
     # set up the problem
     prob = cvx.Problem(obj, cons)
