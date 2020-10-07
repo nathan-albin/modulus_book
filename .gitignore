@@ -2,8 +2,7 @@
 *.pyc
 html/
 .ipynb_checkpoints/
-Pipfile
-Pipfile.lock
 References.html
 References_bib.html
 *.bib.bak
+modulus_book/_build
