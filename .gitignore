@@ -1,8 +1,4 @@
 *~
 *.pyc
-html/
 .ipynb_checkpoints/
-References.html
-References_bib.html
-*.bib.bak
-modulus_book/_build
+_build
