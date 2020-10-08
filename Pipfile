@@ -13,6 +13,7 @@ matplotlib = "*"
 cvxpy = "*"
 pycddlib = "*"
 jupyter-book = "*"
+ghp-import = "*"
 
 [requires]
 python_version = "3.8"
