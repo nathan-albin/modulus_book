@@ -1,0 +1,11 @@
+- file: Introduction
+
+- part: Modulus Basics
+  chapters:
+    - file: Intro_to_Modulus
+    - file: The_Basic_Algorithm
+    - file: Dual_Families
+
+- part: References
+  chapters:
+    - file: ZZZReferences

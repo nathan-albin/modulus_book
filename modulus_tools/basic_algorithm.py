@@ -35,6 +35,8 @@ def matrix_modulus(N, p=2, sigma=None):
     
     import cvxpy as cvx
     import numpy as np
+
+    from warnings import warn
     
     # problem dimension
     m = N.shape[1]
@@ -52,12 +54,12 @@ def matrix_modulus(N, p=2, sigma=None):
     
     # objective
     if p is not np.inf:
-        obj = cvx.Minimize(sigma.T*rho**p)
+        obj = cvx.Minimize(sigma.T@rho**p)
     else:
         obj = cvx.Minimize(cvx.max(cvx.multiply(sigma, rho)))
         
     # constraints
-    cons = [rho >= 0, N*rho >= 1]
+    cons = [rho >= 0, N@rho >= 1]
     
     # set up the problem
     prob = cvx.Problem(obj, cons)
@@ -141,12 +143,12 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
     
     import numpy as np
     import scipy.sparse as sp
-    from time import clock
+    from time import perf_counter
     
     # timers
     search_time = 0.
     update_time = 0.
-    mod_start = clock()
+    mod_start = perf_counter()
     
     # initialize variables
     rho = np.zeros(m)
@@ -170,9 +172,9 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
     for iter_count in range(max_iter):
                 
         # find a constraint to add
-        start = clock()
+        start = perf_counter()
         c, n = find_shortest(rho, tol)
-        search_time += clock()-start
+        search_time += perf_counter()-start
         
         # compute the length of the shortest object
         if n is None:
@@ -191,10 +193,10 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
         if length > 1-tol:
             if output_every:
                 print('| {:6d} | {:9.3e} | {:9.3e} | {:9.3e} | {:6d} | {:9.3e} |' \
-                    .format( iter_count+1, mod, upper, (upper-mod)/mod, N.shape[0], clock() - mod_start ))
+                    .format( iter_count+1, mod, upper, (upper-mod)/mod, N.shape[0], perf_counter() - mod_start ))
 
                 print()
-                print('program running time = {} sec'.format( clock() - mod_start ))
+                print('program running time = {} sec'.format( perf_counter() - mod_start ))
                 print('constraint search    = {} sec'.format( search_time ))
                 print('solution update      = {} sec'.format( update_time ))
 
@@ -205,9 +207,9 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
         cons.append(c)
         
         # re-optimize
-        start = clock()
+        start = perf_counter()
         mod, rho, lam =solve_subproblem(N, p, sigma)
-        update_time += clock()-start
+        update_time += perf_counter()-start
         
         
         # print some feedback if desired
@@ -217,7 +219,7 @@ def modulus(m, solve_subproblem, find_shortest, p = 2, sigma = None, tol = 1e-3,
             else:
                 rel_gap = (upper-mod)/mod
             print('| {:6d} | {:.3e} | {:.3e} | {:.3e} | {:6d} | {:.3e} |' \
-                .format( iter_count+1, mod, upper, rel_gap, N.shape[0], clock() - mod_start ))
+                .format( iter_count+1, mod, upper, rel_gap, N.shape[0], perf_counter() - mod_start ))
 
         
     # if we got here, we failed to converge
