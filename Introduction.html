@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Basic Algorithm" href="The_Basic_Algorithm.html" />
+    <link rel="next" title="Intro to Modulus" href="Intro_to_Modulus.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -101,6 +101,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro_to_Modulus.html">
+   Intro to Modulus
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="The_Basic_Algorithm.html">
    The Basic Algorithm
@@ -165,9 +170,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Introduction.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Introduction.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -188,7 +193,7 @@
             href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FIntroduction.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/master/Introduction.ipynb"><button
+        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/master/Introduction.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -208,73 +213,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#families-of-objects">
-   Families of objects
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-the-family-of-triangles">
-     Example: the family of triangles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-a-family-of-simple-paths">
-     Example: a family of simple paths
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#admissible-densities-everybody-pays-a-dollar">
-   Admissible densities: “Everybody pays a dollar”
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-densities-and-triangles">
-     Example: densities and triangles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-densities-and-paths">
-     Example: densities and paths
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modulus-of-a-family">
-   Modulus of a family
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-triangle-modulus">
-     Example: triangle modulus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-path-modulus">
-     Example: path modulus
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-to-from-here">
-   Where to from here?
-  </a>
-  <ul class="nav section-nav flex-column">
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -284,376 +222,11 @@
                 
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="families-of-objects">
-<h2>Families of objects<a class="headerlink" href="#families-of-objects" title="Permalink to this headline">¶</a></h2>
-<p>The goal of this book is to introduce a collection of Python routines to explore the concept of the modulus of a family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> on a discrete graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.  Roughly speaking, modulus is a framework for quantifying the “richness” of the family <span class="math notranslate nohighlight">\(\Gamma\)</span>.  Before we define modulus, therefore, it make sense to consider what is meant by a family of objects.  As will become apparent in later chapters, there aren’t many obvious constraints on the type of graph considered.  For example, the graph may be finite or infinite, it may be directed or undirected, it may even contain parallel edges or self loops.  Modulus is a flexible framework that can be adapted to many settings.  However, for developing an intuition about modulus, it helps to consider something concrete; for now, consider a finite, simple, undirected graph <span class="math notranslate nohighlight">\(G\)</span>.</p>
-<p>Similarly, there is a great deal of flexibility in what is considered to be an “objects”.  A good starting point is to consider <span class="math notranslate nohighlight">\(\Gamma\)</span> to be some collection of subsets of edges. That is, <span class="math notranslate nohighlight">\(\Gamma\subseteq 2^E\)</span>.  While it is certainly possible to define more complicated notions of “object,” families of edge subsets are already sufficiently rich to demonstrate the modulus framework.  For now, then, we shall think of <span class="math notranslate nohighlight">\(\Gamma\)</span> as a collection of subsets of edges.  Some possible choices to keep in mind are:</p>
-<ul class="simple">
-<li><p>the family of all paths connecting two specified distinct nodes</p></li>
-<li><p>the family of all cuts separating two specified distinct nodes</p></li>
-<li><p>the family of all spanning trees of <span class="math notranslate nohighlight">\(G\)</span></p></li>
-<li><p>the family of all cycles in <span class="math notranslate nohighlight">\(G\)</span></p></li>
-<li><p>the family of all triangles in <span class="math notranslate nohighlight">\(G\)</span></p></li>
-<li><p>the family of all stars in <span class="math notranslate nohighlight">\(G\)</span></p></li>
-</ul>
-<p>In each of these cases, we may identify each object <span class="math notranslate nohighlight">\(\gamma\)</span> in the family <span class="math notranslate nohighlight">\(\Gamma\)</span> with the set of edges used by the object.  For example, a path can be identified with the collection of edges it crosses.  A convenient way to keep track of this information is via the <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> <em>usage matrix</em> <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>, whose entries are defined as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{N}(\gamma,e) :=
-\begin{cases}
-1 &amp; \text{if }e\in\gamma,\\
-0 &amp; \text{otherwise}.
-\end{cases}
-\end{split}\]</div>
-<div class="section" id="example-the-family-of-triangles">
-<h3>Example: the family of triangles<a class="headerlink" href="#example-the-family-of-triangles" title="Permalink to this headline">¶</a></h3>
-<p>The following code cell produces the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix for the family of triangles on a particular graph.  Notice that, in order to write <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> as a two-dimensional array of numbers, we need to choose some ordering for the edges and objects.  These orderings can be chosen arbitrarily, as long as they are used consistently.</p>
-<p>The code also draws the three triangles of the graph.  The labels on the edges show the edge enumeration.  The figure on the left corresponds to the first row of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>, the middle figure to the second row, and the right figure to the third row.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
-
-<span class="c1"># the demo graph</span>
-<span class="n">G</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">demo_graphs</span><span class="o">.</span><span class="n">slashed_house_graph</span><span class="p">()</span>
-
-<span class="c1"># enumerate the edges</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
-    <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-    
-<span class="c1"># find all triangles</span>
-<span class="c1"># NOTE: this would be a silly thing to do on a big graph</span>
-<span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
-                <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)))</span>
-
-                
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="c1"># draw the triangles</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    
-<span class="c1"># build the N matrix</span>
-<span class="n">n_edges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
-<span class="n">n_triangles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">triangles</span><span class="p">)</span>
-<span class="n">N_tri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_triangles</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span>
-        <span class="n">N_tri</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;N_tri = &#39;</span><span class="p">)</span>        
-<span class="nb">print</span><span class="p">(</span><span class="n">N_tri</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N_tri = 
-[[1. 0. 1. 0. 1. 0. 0.]
- [0. 0. 1. 1. 0. 1. 0.]
- [0. 1. 0. 1. 0. 0. 1.]]
-</pre></div>
-</div>
-<img alt="_images/Introduction_4_1.png" src="_images/Introduction_4_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="example-a-family-of-simple-paths">
-<h3>Example: a family of simple paths<a class="headerlink" href="#example-a-family-of-simple-paths" title="Permalink to this headline">¶</a></h3>
-<p>Consider, instead, the family of simple paths that connect the top vertex of the previous graph to the bottom-right vertex.  The following code generates and prints the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix for this family, along with a corresponding series of pictures.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find all simple paths</span>
-<span class="c1"># NOTE: again, not a good idea for large graphs</span>
-<span class="n">paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="c1"># draw the paths</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    
-<span class="c1"># build the N matrix</span>
-<span class="n">n_edges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
-<span class="n">n_paths</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
-<span class="n">N_path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_paths</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">path</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]:</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span>
-        <span class="n">N_path</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;N_path = &#39;</span><span class="p">)</span>        
-<span class="nb">print</span><span class="p">(</span><span class="n">N_path</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N_path = 
-[[1. 1. 0. 0. 0. 0. 1.]
- [1. 0. 1. 0. 0. 1. 0.]
- [1. 0. 0. 1. 0. 0. 0.]
- [0. 0. 0. 0. 1. 1. 0.]
- [0. 1. 1. 0. 1. 0. 1.]
- [0. 0. 1. 1. 1. 0. 0.]]
-</pre></div>
-</div>
-<img alt="_images/Introduction_6_1.png" src="_images/Introduction_6_1.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="admissible-densities-everybody-pays-a-dollar">
-<h2>Admissible densities: “Everybody pays a dollar”<a class="headerlink" href="#admissible-densities-everybody-pays-a-dollar" title="Permalink to this headline">¶</a></h2>
-<p>The next step in the definition of modulus is to develop the concept of admissible density.  Suppose we are given a graph <span class="math notranslate nohighlight">\(G\)</span> and the usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> for a family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span>.  In later chapters, we shall see more exotic families of objects whose usage matrices take values other than <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> so, in order to keep the discussion general, we assume that <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> real matrix with non-negative entries.</p>
-<p>A <em>density</em> on <span class="math notranslate nohighlight">\(G\)</span> is a non-negative vector <span class="math notranslate nohighlight">\(\rho\in\mathbb{R}^E_{\ge 0}\)</span> that gives some non-negative value <span class="math notranslate nohighlight">\(\rho(e)\)</span> to every edge <span class="math notranslate nohighlight">\(e\in E\)</span>.  It can be helpful to think of <span class="math notranslate nohighlight">\(\rho(e)\)</span> as a cost per unit usage incurred by using edge <span class="math notranslate nohighlight">\(e\)</span>.  This induces on each <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span> a <em>total usage cost</em>, often referred to as the <em><span class="math notranslate nohighlight">\(\rho\)</span>-length</em> of <span class="math notranslate nohighlight">\(\gamma\)</span> for historical reasons, defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\ell_\rho(\gamma) := \sum_{e\in E}\mathcal{N}(\gamma,e)\rho(e).
-\]</div>
-<p>In words, the <span class="math notranslate nohighlight">\(\rho\)</span>-length of <span class="math notranslate nohighlight">\(\gamma\)</span> is the sum over all edges of the extent to which <span class="math notranslate nohighlight">\(\gamma\)</span> uses <span class="math notranslate nohighlight">\(e\)</span> multiplied by the cost per unit usage assessed by <span class="math notranslate nohighlight">\(\rho\)</span>.  In the case that all entries of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> are either 0 or 1, the <span class="math notranslate nohighlight">\(\rho\)</span>-length can be rewritten as</p>
-<div class="math notranslate nohighlight">
-\[
-\ell_\rho(\gamma) = \sum_{e\in\Gamma}\rho(e).
-\]</div>
-<p>Now we are ready to define admissibility.  A density <span class="math notranslate nohighlight">\(\rho\in\mathbb{R}^E_{\ge 0}\)</span> is said to be <em>admissible for <span class="math notranslate nohighlight">\(\Gamma\)</span></em> if <span class="math notranslate nohighlight">\(\ell_{\rho}(\gamma)\ge 1\)</span> for every <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span>.  That is: everybody pays a dollar.</p>
-<p>Since <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> matrix and <span class="math notranslate nohighlight">\(\rho\)</span> is an <span class="math notranslate nohighlight">\(E\)</span>-vector, the product <span class="math notranslate nohighlight">\(\mathcal{N}\rho\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\)</span>-vector whose <span class="math notranslate nohighlight">\(\gamma\)</span> entry is <span class="math notranslate nohighlight">\(\ell_\rho(\gamma)\)</span>.  Thus, it is often convenient to use the shorthand notation <span class="math notranslate nohighlight">\(\mathcal{N}\rho\ge\mathbf{1}\)</span> to indicated that <span class="math notranslate nohighlight">\(\rho\)</span> is admissible.  In this context, the inequality is interpreted element-wise.</p>
-<div class="section" id="example-densities-and-triangles">
-<h3>Example: densities and triangles<a class="headerlink" href="#example-densities-and-triangles" title="Permalink to this headline">¶</a></h3>
-<p>Returning to the example of the family of triangles, the following code generates a set of densities and checks for admissibility.  Each row in the figure produced represents a density.  In each row, the triangles are colored either green or red depending on whether or not the <span class="math notranslate nohighlight">\(\rho\)</span>-length of that triangle is at least 1.  A density is admissible for the triangles if all triangles in that row are colored green.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seed the random number generator</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">88198283</span><span class="p">)</span>
-
-<span class="n">n_rho</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rho</span><span class="p">):</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    
-    <span class="c1"># generate a random density</span>
-    <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_edges</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="nb">round</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]],</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    
-    <span class="c1"># compute the rho-lengths</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">N_tri</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
-    
-    <span class="c1"># plot the results</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;rho-length = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Example </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">l</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">title</span> <span class="o">+=</span> <span class="s1">&#39; (admissible)&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">title</span> <span class="o">+=</span> <span class="s1">&#39; (not admissible)&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Introduction_9_0.png" src="_images/Introduction_9_0.png" />
-<img alt="_images/Introduction_9_1.png" src="_images/Introduction_9_1.png" />
-<img alt="_images/Introduction_9_2.png" src="_images/Introduction_9_2.png" />
-</div>
-</div>
-</div>
-<div class="section" id="example-densities-and-paths">
-<h3>Example: densities and paths<a class="headerlink" href="#example-densities-and-paths" title="Permalink to this headline">¶</a></h3>
-<p>The code below does the same thing, but for the path family we considered earlier.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seed the random number generator</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">88198283</span><span class="p">)</span>
-
-<span class="n">n_rho</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rho</span><span class="p">):</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-    
-    <span class="c1"># generate a random density</span>
-    <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_edges</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="nb">round</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]],</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    
-    <span class="c1"># compute the rho-lengths</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">N_path</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
-    
-    <span class="c1"># plot the results</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">path</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-        <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;rho-length = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-
-    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Example </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">l</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">title</span> <span class="o">+=</span> <span class="s1">&#39; (admissible)&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">title</span> <span class="o">+=</span> <span class="s1">&#39; (not admissible)&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Introduction_11_0.png" src="_images/Introduction_11_0.png" />
-<img alt="_images/Introduction_11_1.png" src="_images/Introduction_11_1.png" />
-<img alt="_images/Introduction_11_2.png" src="_images/Introduction_11_2.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="modulus-of-a-family">
-<h2>Modulus of a family<a class="headerlink" href="#modulus-of-a-family" title="Permalink to this headline">¶</a></h2>
-<p>Once the graph <span class="math notranslate nohighlight">\(G\)</span>, the family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> and the usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> are defined, the definition of modulus is easy.  (Interpretations of modulus are more complex and are discussed in later chapters of this book.)  In optimization notation, the <em>modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span></em> is defined to be the value of the problem</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{split}
-\text{minimize}\quad&amp;\mathcal{E}_p(\rho)\\
-\text{subject to}\quad&amp;\rho\in\mathbb{R}^E_{\ge 0}\\
-&amp;\mathcal{N}\rho\ge\mathbf{1}.
-\end{split}
-\end{split}\]</div>
-<p>The symbol <span class="math notranslate nohighlight">\(\mathcal{E}_p\)</span> is called the <em>energy functional</em> or simply the <em>energy</em> for modulus, and is parameterized by a number <span class="math notranslate nohighlight">\(p\in[1,\infty]\)</span>.  For this reason, modulus is often referred to as <em><span class="math notranslate nohighlight">\(p\)</span>-modulus</em> or, when a specific <span class="math notranslate nohighlight">\(p\)</span> has been chosen, as <span class="math notranslate nohighlight">\(1\)</span>-modulus, <span class="math notranslate nohighlight">\(2\)</span>-modulus, <span class="math notranslate nohighlight">\(\infty\)</span>-modulus, etc.  In the context of modulus, a non-negative vector <span class="math notranslate nohighlight">\(\rho\in\mathbb{R}^E_{\ge 0}\)</span> is called a <em>density</em> and the <em><span class="math notranslate nohighlight">\(p\)</span>-energy</em> of a density is defined to be</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{E}_p(\rho) := 
-\begin{cases}
-\sum\limits_{e\in E}\rho(e)^p &amp;\text{ if }1\le p&lt;\infty,\\
-\max\limits_{e\in E}\rho(e) &amp;\text{ if }p=\infty.
-\end{cases}
-\end{split}\]</div>
-<p>That is, the <span class="math notranslate nohighlight">\(p\)</span>-energy of a density is just the sum of its <span class="math notranslate nohighlight">\(p\)</span>th powers on all edges of the graph if <span class="math notranslate nohighlight">\(p&lt;\infty\)</span> and is the maximum value of <span class="math notranslate nohighlight">\(\rho\)</span> over all edges if <span class="math notranslate nohighlight">\(p=\infty\)</span>.</p>
-<p>The value of the optimization problem above is referred to as the <em><span class="math notranslate nohighlight">\(p\)</span>-modulus of the family <span class="math notranslate nohighlight">\(\Gamma\)</span></em> and is denoted <span class="math notranslate nohighlight">\(\text{Mod}_p(\Gamma)\)</span>.  If <span class="math notranslate nohighlight">\(\rho=\rho^*\)</span> is a minimizer, then <span class="math notranslate nohighlight">\(\rho^*\)</span> is called an <em>optimal density</em> or <em>extremal density</em>.</p>
-<div class="section" id="example-triangle-modulus">
-<h3>Example: triangle modulus<a class="headerlink" href="#example-triangle-modulus" title="Permalink to this headline">¶</a></h3>
-<p>Modulus, as defined above, is an example of a convex optimization problem.  Therefore, at least for small graphs, modulus can be computed using any software tool that can solve convex optimization problems.  An example of a function for computing modulus in this way is <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> found in <code class="docutils literal notranslate"><span class="pre">modulus_tools/basic_algorithm.py</span></code>.  Given the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix along with the exponent <span class="math notranslate nohighlight">\(p\)</span>, this function finds a numerical approximation the modulus along with an optimal <span class="math notranslate nohighlight">\(\rho^*\)</span>.  The code below computes the modulus of triangles on our example graph for a few different values of <span class="math notranslate nohighlight">\(p\)</span>.  The value <span class="math notranslate nohighlight">\(\text{Mod}_p(\Gamma)\)</span> is printed above each plot, while the values of the optimal density <span class="math notranslate nohighlight">\(\rho^*\)</span> are shown on the edges.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulus_tools.basic_algorithm</span> <span class="kn">import</span> <span class="n">matrix_modulus</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="c1"># loop over a few p values</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)):</span>
-
-    <span class="c1"># compute the modulus</span>
-    <span class="n">mod</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">matrix_modulus</span><span class="p">(</span><span class="n">N_tri</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-
-    <span class="c1"># draw rho values on graph</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="nb">round</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]],</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;p = </span><span class="si">{}</span><span class="s1">, Mod = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Introduction_14_0.png" src="_images/Introduction_14_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="example-path-modulus">
-<h3>Example: path modulus<a class="headerlink" href="#example-path-modulus" title="Permalink to this headline">¶</a></h3>
-<p>The code above requires only a small modification if we wish to compute the modulus of the family of paths from top to lower right.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="c1"># loop over a few p values</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)):</span>
-
-    <span class="c1"># compute the modulus</span>
-    <span class="n">mod</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">matrix_modulus</span><span class="p">(</span><span class="n">N_path</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-
-    <span class="c1"># draw rho values on graph</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="nb">round</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]],</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;p = </span><span class="si">{}</span><span class="s1">, Mod = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Introduction_16_0.png" src="_images/Introduction_16_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="where-to-from-here">
-<h2>Where to from here?<a class="headerlink" href="#where-to-from-here" title="Permalink to this headline">¶</a></h2>
-<p>Modulus is better thought of as a general framework for understanding families of objects than as a single rigid theory.  The ideas presented above can be generalized an my different and interesting ways, only some of which are covered in the chapters that follow.  Before moving on, however, we will introduce two useful generalizations.  First, if <span class="math notranslate nohighlight">\(G\)</span> is a weighted graph with nonnegative weights <span class="math notranslate nohighlight">\(\sigma\in\mathbb{R}^E_{&gt;0}\)</span>, it is common to define a <em>weighted <span class="math notranslate nohighlight">\(p\)</span>-modulus</em>, <span class="math notranslate nohighlight">\(\text{Mod}_{p,\sigma}(\Gamma)\)</span>, wherein the energy <span class="math notranslate nohighlight">\(\mathcal{E}_p\)</span> is replaced by</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{E}_{p,\sigma}(\rho) :=
-\begin{cases}
-\sum\limits_{e\in E}\sigma(e)\rho(e)^p &amp;\text{ if }1\le p&lt;\infty,\\
-\max\limits_{e\in E}\sigma(e)\rho(e) &amp;\text{ if }p=\infty.
-\end{cases}
-\end{split}\]</div>
-<p>Second, as described before, it is also useful to consider more general usage matrices <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> that may take nonnegative values other than <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>.  This allows the consideration of objects that may have multiplicity on certain edges, or may spread fractional usage among several edges.  In any case, the modulus problem always looks the same:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{split}
-\text{minimize}\quad&amp;\mathcal{E}_{p,\sigma}(\rho)\\
-\text{subject to}\quad&amp;\rho\in\mathbb{R}^E_{\ge 0}\\
-&amp;\mathcal{N}\rho\ge\mathbf{1}.
-\end{split}
-\end{split}\]</div>
-<p>The energy is determined by the parameter <span class="math notranslate nohighlight">\(p\)</span> and weights <span class="math notranslate nohighlight">\(\sigma\)</span> while the constraints are determined by the usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>.  The <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> function can compute this more general concept of modulus.</p>
-<p>The remainder of this book delves more deeply into modulus, its various interpretations, and algorithms for computing it.</p>
-<p>Other resources for understanding modulus and its applications can be found in the following papers.</p>
-<ul class="simple">
-<li><p><strong>General theory:</strong> <a class="bibtex reference internal" href="ZZZReferences.html#albin2015modulusgraphsas" id="id1">[ABP+15]</a><a class="bibtex reference internal" href="ZZZReferences.html#albin2017modulusfamilieswalks" id="id2">[ASGPC17]</a></p></li>
-<li><p><strong>Interpretations of modulus:</strong> <a class="bibtex reference internal" href="ZZZReferences.html#albin2016minimalsubfamiliesprobabilistic" id="id3">[APC16]</a><a class="bibtex reference internal" href="ZZZReferences.html#albin2019blockingdualityp" id="id4">[ACFPC19]</a><a class="bibtex reference internal" href="ZZZReferences.html#albin2018fairestedgeusage" id="id5">[ACH+18]</a></p></li>
-<li><p><strong>Applications of modulus:</strong> <a class="bibtex reference internal" href="ZZZReferences.html#albin2018modulusmetricsnetworks" id="id6">[AFPC18]</a><a class="bibtex reference internal" href="ZZZReferences.html#shakeri2016generalizednetworkmeasures" id="id7">[SPCSA16]</a><a class="bibtex reference internal" href="ZZZReferences.html#shakeri2017networkclusteringcommunity" id="id8">[SPCAS17]</a><a class="bibtex reference internal" href="ZZZReferences.html#shakeri2018generalizationeffectiveconductance" id="id9">[SMJPC+18]</a></p></li>
-</ul>
+<p>The purpose of this book is to provide the reader with a brief introduction to the concept of discrete modulus along with the Python modulus code hosted <a class="reference external" href="https://github.com/nathan-albin/modulus_book/tree/master/modulus_tools">here</a>.  The source of the book can be found <a class="reference external" href="https://github.com/nathan-albin/modulus_book">here</a>.</p>
+<p>This material is based upon work supported by the National Science Foundation under <a class="reference external" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1515810">Grant No. 1515810</a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -685,7 +258,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="The_Basic_Algorithm.html" title="next page">The Basic Algorithm</a>
+    <a class='right-next' id="next-link" href="Intro_to_Modulus.html" title="next page">Intro to Modulus</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
