@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dual Families &#8212; The Modulus Book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="ZZZReferences.html" />
+    <link rel="prev" title="The Basic Algorithm" href="The_Basic_Algorithm.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">The Modulus Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modulus Basics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="The_Basic_Algorithm.html">
+   The Basic Algorithm
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dual Families
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ZZZReferences.html">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Dual_Families.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nathan-albin/modulus_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FDual_Families.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/master/Dual_Families.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-connecting-paths">
+   Example: Connecting paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spanning-trees">
+   Example: Spanning trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-via-walks">
+   Example: Via walks
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dual-families">
+<h1>Dual Families<a class="headerlink" href="#dual-families" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>As described in <a class="bibtex reference internal" href="ZZZReferences.html#albin2019blockingdualityp" id="id1">[ACFPC19]</a>, every family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> has a natural dual family <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span>, called the <em>blocker</em> of <span class="math notranslate nohighlight">\(\Gamma\)</span>.  These families are connected through modulus by the property that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Mod}_{p,\sigma}(\Gamma)^{\frac{1}{p}} =
+\text{Mod}_{q,\hat{\sigma}}(\hat{\Gamma})^{\frac{1}{q}},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\in(1,\infty)\)</span>, <span class="math notranslate nohighlight">\(q=p/(p-1)\)</span> is its Hölder conjugate exponent, and where <span class="math notranslate nohighlight">\(\hat{\sigma}=\sigma^{-\frac{q}{p}}\)</span>.  Moreover, the unique optimal density <span class="math notranslate nohighlight">\(\rho^*\)</span> for the first modulus problem and <span class="math notranslate nohighlight">\(\eta^*\)</span> for the second are related as follows.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\hat{\sigma}(e)\eta^*(e)^q}{\text{Mod}_{q,\hat{\sigma}}(\hat{\Gamma})} =
+\frac{\sigma(e)\rho^*(e)^p}{\text{Mod}_{p,\sigma}(\Gamma)}.
+\]</div>
+<p>There is a similar duality between <span class="math notranslate nohighlight">\(1\)</span>- and <span class="math notranslate nohighlight">\(\infty\)</span>-modulus, namely that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Mod}_{1,\sigma}(\Gamma) =
+\text{Mod}_{\infty,\sigma^{-1}}(\hat{\Gamma}).
+\]</div>
+<p>In this case, however, the optimal densities are generally nonunique, making it harder to establish a simple relationship between them.</p>
+<p>Interpreting blocking duality correctly requires a specific representation of the objects <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span>.  Namely, we identify each <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span> with its corresponding usage vector <span class="math notranslate nohighlight">\(\mathcal{N}(\gamma,e)\)</span>.  In this way, we think of <span class="math notranslate nohighlight">\(\Gamma\subset\mathbb{R}^E_{\ge 0}\)</span>.</p>
+<p>Now, the set of admissible densities for the modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined through a set of linear inequalities</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Adm}(\Gamma) := \{\rho\in\mathbb{R}^E : \rho\ge 0, \;\ell_\rho(\gamma)\ge 0\;\forall\gamma\in\Gamma\}.
+\]</div>
+<p>This is a convex set in <span class="math notranslate nohighlight">\(\mathbb{R}^{E}_{\ge 0}\)</span>, defined by finitely many linear inequalities and, therefore, it has a finite set of extreme points.  The dual family <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> is simply this set of extreme points, where we again use the representation of objects by their usage vectors.</p>
+<p>On small graphs, the dual family can be computed and visualized using <a class="reference external" href="https://pycddlib.readthedocs.io/en/latest/">pycddlib</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cdd</span>
+<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
+<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">algorithms</span> <span class="k">as</span> <span class="n">alg</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-connecting-paths">
+<h2>Example: Connecting paths<a class="headerlink" href="#example-connecting-paths" title="Permalink to this headline">¶</a></h2>
+<p>Consider, for example, the set of all paths connecting two distinct nodes <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.  These are called <span class="math notranslate nohighlight">\(st\)</span>-paths.  The following code generates and visualizes a list of all paths on a demo graph.  Labels on the edges show values of the usage vector.  Edges with positive usage are drawn with thicker lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the demo graph</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">demo_graphs</span><span class="o">.</span><span class="n">slashed_house_graph</span><span class="p">()</span>
+
+<span class="c1"># enumerate the edges</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    
+<span class="c1"># find all paths between nodes 1 (red) and 3 (blue)</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># draw the paths</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="mi">0</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">}</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]):</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)})</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_4_0.png" src="_images/Dual_Families_4_0.png" />
+</div>
+</div>
+<p>In order to explore the extreme points of the admissible set, we need to pass between the hyperplane representation (H-representation) and the vertex representation (V-representation) of the set.  This is exactly what <code class="docutils literal notranslate"><span class="pre">cdd</span></code> was designed to do.  We begin by forming a list of inequalities defining the admissible set.  For <code class="docutils literal notranslate"><span class="pre">cdd</span></code>, we need to write our inequalities in the form <span class="math notranslate nohighlight">\(Ax \le b\)</span> and then store them in an augmented matrix of the form <span class="math notranslate nohighlight">\([b\;-A]\)</span>.  We have two types of constraints: <span class="math notranslate nohighlight">\(\rho\ge 0\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}\rho\ge 1\)</span>, where <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is the usage matrix for the family <span class="math notranslate nohighlight">\(\Gamma\)</span>.  Rewriting in the proper form, we get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+-I \\ -\mathcal{N}
+\end{bmatrix}\rho \le
+\begin{bmatrix}
+0 \\ -\mathbf{1}
+\end{bmatrix}
+\end{split}\]</div>
+<p>and, thus, the augmented matrix we need to generate is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+0 &amp; I \\
+-\mathbf{1} &amp; \mathcal{N}
+\end{bmatrix}.
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the number of edges</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+
+<span class="c1"># initialize an empty list of rows for the augmented matrix</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># add rows corresponding to the constraints rho &gt;= 0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># add rows corresponding to the constraints N*rho &gt;= 1</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span>
+        <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># create the polyhedron in cdd</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">number_type</span><span class="o">=</span><span class="s1">&#39;fraction&#39;</span><span class="p">)</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">rep_type</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">RepType</span><span class="o">.</span><span class="n">INEQUALITY</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Polyhedron</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>begin
+ 13 8 rational
+ 0 1 0 0 0 0 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 1 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 0 0 0 0 1 0
+ 0 0 0 0 0 0 0 1
+ -1 1 1 0 0 0 0 1
+ -1 1 0 1 0 0 1 0
+ -1 1 0 0 1 0 0 0
+ -1 0 0 0 0 1 1 0
+ -1 0 1 1 0 1 0 1
+ -1 0 0 1 1 1 0 0
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we ask <code class="docutils literal notranslate"><span class="pre">cdd</span></code> to produce the V-representation of this polyhedron.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_generators</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V-representation
+begin
+ 13 8 rational
+ 1 0 0 0 1 0 1 1
+ 1 0 1 0 1 0 1 0
+ 1 0 0 1 1 1 0 1
+ 1 0 1 1 1 1 0 0
+ 1 1 0 1 0 0 1 0
+ 1 1 0 0 0 1 0 0
+ 0 1 0 0 0 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 0 0 0 0 1
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 0 0 1 0
+ 0 0 0 0 1 0 0 0
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>The V-representation contains two types of information.  Rows beginning with 1 signal an extreme point of the polyhedron, rows beginning with 0 signal an extreme direction.  Since the admissible set recedes into the positive orthant, there should always be <span class="math notranslate nohighlight">\(|E|\)</span> of these extreme directions.  The extreme points correspond to the objects in <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span>.  The following code cell provides a visualization of these objects.  Again, we draw the graph with edges labeled by object usage and highlight edges with positive edge usage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of dual objects</span>
+<span class="n">dual</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># loop over extreme points and directions</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">row_size</span><span class="p">):</span>
+    
+    <span class="c1"># skip extreme directions</span>
+    <span class="k">if</span> <span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="c1"># add the vector representation of the dual object</span>
+    <span class="n">dual</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># draw the blocker</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dual</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_10_0.png" src="_images/Dual_Families_10_0.png" />
+</div>
+</div>
+<p>There are a few important things to note here.</p>
+<ol class="simple">
+<li><p>In this case, the size of <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> equals the size of <span class="math notranslate nohighlight">\(\Gamma\)</span>. That is coincidence.  In general, the two sets will have different sizes.</p></li>
+<li><p>In this case, the usage vectors for objects in <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> lie in <span class="math notranslate nohighlight">\(\{0,1\}^E\)</span>.  This is also not a general property.  Only certain special families of objects have blockers with that property.  We’ll see a counterexample shortly.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of <span class="math notranslate nohighlight">\(st\)</span>-paths, <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> has a very simple interpretation; it is the family of minimal <span class="math notranslate nohighlight">\(st\)</span>-cuts (with a <span class="math notranslate nohighlight">\((0,1)\)</span> usage matrix).  See if you can convince yourself that every minimal <span class="math notranslate nohighlight">\(st\)</span>-cut is present in the figure above.  This fact is essentially why the max-flow min-cut theorem is true, and it is sometimes helpful to think of this type of duality as a generalization of max-flow min-cut to other families of objects.</p></li>
+</ol>
+</div>
+<div class="section" id="example-spanning-trees">
+<h2>Example: Spanning trees<a class="headerlink" href="#example-spanning-trees" title="Permalink to this headline">¶</a></h2>
+<p>Another interesting example of an object family is the family <span class="math notranslate nohighlight">\(\Gamma\)</span> of all spanning trees of a graph (again, with the standard <span class="math notranslate nohighlight">\((0,1)\)</span> usage matrix).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a list of spanning trees</span>
+<span class="n">trees</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">spanning_trees</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+
+<span class="c1"># number of columns and rows for plot</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trees</span><span class="p">)</span><span class="o">/</span><span class="n">ncol</span><span class="p">))</span>
+
+<span class="c1"># draw the trees</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tree</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trees</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="mi">0</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">}</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="mi">1</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">})</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">tree</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_13_0.png" src="_images/Dual_Families_13_0.png" />
+</div>
+</div>
+<p>Here’s the H-representation of the admissible densities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the number of edges</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+
+<span class="c1"># initialize an empty list of rows for the augmented matrix</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># add rows corresponding to the constraints rho &gt;= 0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># add rows corresponding to the constraints N*rho &gt;= 1</span>
+<span class="k">for</span> <span class="n">tree</span> <span class="ow">in</span> <span class="n">trees</span><span class="p">:</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span>
+        <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># create the polyhedron in cdd</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">number_type</span><span class="o">=</span><span class="s1">&#39;fraction&#39;</span><span class="p">)</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">rep_type</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">RepType</span><span class="o">.</span><span class="n">INEQUALITY</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Polyhedron</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>begin
+ 28 8 rational
+ 0 1 0 0 0 0 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 1 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 0 0 0 0 1 0
+ 0 0 0 0 0 0 0 1
+ -1 1 1 1 1 0 0 0
+ -1 1 1 1 0 0 1 0
+ -1 1 1 1 0 0 0 1
+ -1 1 1 0 1 1 0 0
+ -1 1 1 0 1 0 1 0
+ -1 1 1 0 0 1 1 0
+ -1 1 1 0 0 1 0 1
+ -1 1 1 0 0 0 1 1
+ -1 1 0 1 1 0 0 1
+ -1 1 0 1 0 0 1 1
+ -1 1 0 0 1 1 0 1
+ -1 1 0 0 1 0 1 1
+ -1 1 0 0 0 1 1 1
+ -1 0 1 1 1 1 0 0
+ -1 0 1 1 0 1 1 0
+ -1 0 1 1 0 1 0 1
+ -1 0 1 0 1 1 1 0
+ -1 0 1 0 0 1 1 1
+ -1 0 0 1 1 1 0 1
+ -1 0 0 1 0 1 1 1
+ -1 0 0 0 1 1 1 1
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>And here’s the V-representation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_generators</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V-representation
+begin
+ 33 8 rational
+ 1 0 0 0 1 0 1 1
+ 1 0 1/2 0 1/2 0 1/2 1/2
+ 1 0 1 0 1 0 1 0
+ 1 0 1 0 0 0 0 1
+ 1 0 0 1 0 1 1 0
+ 1 0 0 1 1 1 0 1
+ 1 0 0 1/2 1/2 1/2 1/2 1/2
+ 1 0 1/2 1/2 1/2 1/2 0 1/2
+ 1 0 1 1 1 1 0 0
+ 1 0 1/3 1/3 1/3 1/3 1/3 1/3
+ 1 0 1/2 1/2 1/2 1/2 1/2 0
+ 1 1/2 1/2 1/2 1/2 0 0 1/2
+ 1 1 1 1 1 0 0 0
+ 1 1/3 1/3 1/3 1/3 0 1/3 1/3
+ 1 1/2 1/2 1/2 1/2 0 1/2 0
+ 1 1/4 1/4 1/4 1/4 1/4 1/4 1/4
+ 1 1/3 1/3 1/3 1/3 1/3 1/3 0
+ 1 1/2 1/2 1/2 1/2 1/2 0 0
+ 1 1/3 1/3 1/3 1/3 1/3 0 1/3
+ 1 1/3 0 1/3 1/3 1/3 1/3 1/3
+ 1 1/2 0 1/2 1/2 1/2 0 1/2
+ 1 1/2 0 1/2 1/2 0 1/2 1/2
+ 1 1 0 1 1 0 0 1
+ 1 1 0 1 0 0 1 0
+ 1 1/2 0 1/2 0 1/2 1/2 0
+ 1 1 0 0 0 1 0 0
+ 0 1 0 0 0 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 0 0 0 0 1
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 1 0 0 0
+ 0 0 0 0 0 0 1 0
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>Already, you can see something interesting.  Unlike in the case of connecting paths, the dual family here has usage vectors that are not just 0s and 1s.  Visualizing this set will help us get a better picture of what they are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of dual objects</span>
+<span class="n">dual</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># loop over extreme points and directions</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">row_size</span><span class="p">):</span>
+    
+    <span class="c1"># skip extreme directions</span>
+    <span class="k">if</span> <span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="c1"># add the vector representation of the dual object</span>
+    <span class="n">dual</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+    
+<span class="c1"># number of columns and rows for plot</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dual</span><span class="p">)</span><span class="o">/</span><span class="n">ncol</span><span class="p">))</span>
+
+<span class="c1"># draw the trees</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+
+<span class="c1"># draw the blocker</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dual</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_19_0.png" src="_images/Dual_Families_19_0.png" />
+</div>
+</div>
+<p>This set of objects has an interesting interpretation, given by Chopra <a class="bibtex reference internal" href="ZZZReferences.html#chopra1989spanningtreepolyhedron" id="id2">[Cho89]</a>.  Consider any of the figures above.  Removing the darkened edges will disconnect the graph into <span class="math notranslate nohighlight">\(k&gt;1\)</span> connected components.  The weights on the edges are <span class="math notranslate nohighlight">\(1/(k-1)\)</span>.  The objects shown are all such edge sets that are minimal in the sense that removing a strict subset of the darkened edges will result in fewer connected components.  Chopra called these objects <em>feasible partitions</em>.  In this sense, the family <span class="math notranslate nohighlight">\(\Gamma\)</span> of spanning trees (with <span class="math notranslate nohighlight">\((0,1)\)</span> usage matrix) is the blocking dual of the family <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> of feasible partitions (with usage matrix based on number of connected components just described).</p>
+</div>
+<div class="section" id="example-via-walks">
+<h2>Example: Via walks<a class="headerlink" href="#example-via-walks" title="Permalink to this headline">¶</a></h2>
+<p>Although every family <span class="math notranslate nohighlight">\(\Gamma\)</span> necessarily has a blocking dual <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span>, nice characterizations of these dual families (like those above) are not always yet known.  For example, consider the family of walks between <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> via <span class="math notranslate nohighlight">\(u\)</span>.  More precisely, these are the walks formed by concatenating a path from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(u\)</span> with a path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(t\)</span>.  Here is a visualization of this family on our example graph.  For fun, see if you can figure out from the edge labels which two paths were concatenated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+
+<span class="c1"># find all paths between nodes 1 (red) and 4 (purple)</span>
+<span class="n">start_paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># find all paths between nodes 4 (purple) and 3 (blue)</span>
+<span class="n">end_paths</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">objects</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># form the object vectors</span>
+<span class="k">for</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">start_paths</span><span class="p">,</span> <span class="n">end_paths</span><span class="p">):</span>
+    
+    <span class="c1"># concatenate the paths</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    
+    <span class="c1"># count edge crossings</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]][</span><span class="s1">&#39;enum&#39;</span><span class="p">]</span>
+        <span class="n">obj</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="c1"># add object to list</span>
+    <span class="n">objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    
+<span class="c1"># number of columns and rows for plot</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dual</span><span class="p">)</span><span class="o">/</span><span class="n">ncol</span><span class="p">))</span>
+
+<span class="c1"># draw the trees</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+
+<span class="c1"># draw the objects</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">objects</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">],</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_22_0.png" src="_images/Dual_Families_22_0.png" />
+</div>
+</div>
+<p>Once again, let’s from the H-representation for the admissible set of densities for our family.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the number of edges</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+
+<span class="c1"># initialize an empty list of rows for the augmented matrix</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># add rows corresponding to the constraints rho &gt;= 0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># add rows corresponding to the constraints N*rho &gt;= 1</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">:</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="c1"># create the polyhedron in cdd</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">number_type</span><span class="o">=</span><span class="s1">&#39;fraction&#39;</span><span class="p">)</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">rep_type</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">RepType</span><span class="o">.</span><span class="n">INEQUALITY</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">cdd</span><span class="o">.</span><span class="n">Polyhedron</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>begin
+ 35 8 rational
+ 0 1 0 0 0 0 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 1 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 0 0 0 0 1 0
+ 0 0 0 0 0 0 0 1
+ -1 1 1 0 0 0 0 1
+ -1 2 2 0 0 1 1 0
+ -1 1 2 1 0 0 1 0
+ -1 1 2 0 1 0 0 0
+ -1 1 0 1 0 0 1 2
+ -1 2 1 1 0 1 2 1
+ -1 1 1 2 0 0 2 1
+ -1 1 1 1 1 0 1 1
+ -1 1 0 0 1 0 0 2
+ -1 2 1 0 1 1 1 1
+ -1 1 1 1 1 0 1 1
+ -1 1 1 0 2 0 0 1
+ -1 0 0 0 0 1 1 2
+ -1 1 1 0 0 2 2 1
+ -1 0 1 1 0 1 2 1
+ -1 0 1 0 1 1 1 1
+ -1 0 1 0 1 1 1 1
+ -1 1 2 0 1 2 2 0
+ -1 0 2 1 1 1 2 0
+ -1 0 2 0 2 1 1 0
+ -1 0 1 1 0 1 0 1
+ -1 1 2 1 0 2 1 0
+ -1 0 2 2 0 1 1 0
+ -1 0 2 1 1 1 0 0
+ -1 0 0 1 1 1 0 2
+ -1 1 1 1 1 2 1 1
+ -1 0 1 2 1 1 1 1
+ -1 0 1 1 2 1 0 1
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>The V-representation is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_generators</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V-representation
+begin
+ 15 8 rational
+ 1 0 0 0 1 0 1 1
+ 1 0 1 0 1 0 1 0
+ 1 0 1/2 0 0 0 0 1/2
+ 1 0 0 1 1 1 0 1
+ 1 0 1 1 1 1 0 0
+ 1 1/2 0 1/2 1/2 0 0 1/2
+ 1 1 0 1 0 0 1 0
+ 1 1 0 0 0 1 0 0
+ 0 1 0 0 0 0 0 0
+ 0 0 0 0 0 1 0 0
+ 0 0 1 0 0 0 0 0
+ 0 0 0 0 0 0 0 1
+ 0 0 0 1 0 0 0 0
+ 0 0 0 0 0 0 1 0
+ 0 0 0 0 1 0 0 0
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, here’s what the dual family looks like for the via family we picked.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of dual objects</span>
+<span class="n">dual</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># loop over extreme points and directions</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">row_size</span><span class="p">):</span>
+    
+    <span class="c1"># skip extreme directions</span>
+    <span class="k">if</span> <span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="c1"># add the vector representation of the dual object</span>
+    <span class="n">dual</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ext</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+    
+<span class="c1"># number of columns and rows for plot</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dual</span><span class="p">)</span><span class="o">/</span><span class="n">ncol</span><span class="p">))</span>
+
+<span class="c1"># draw the trees</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
+
+<span class="c1"># draw the blocker</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dual</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span><span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">],</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Dual_Families_28_0.png" src="_images/Dual_Families_28_0.png" />
+</div>
+</div>
+<p>Notice that the blocking family has all 6 minimal <span class="math notranslate nohighlight">\(st\)</span>-cuts we saw before (with the usual usage matrix).  Additionally, it has two cuts that separate <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> on one side from <span class="math notranslate nohighlight">\(u\)</span> on the other.  For these cuts, the usage vector only needs to take the value <span class="math notranslate nohighlight">\(1/2\)</span> because any walk in our family needs to cross such a cut twice.  This gives a pretty good indication of what the blocking family should be.  To our knowledge, however, this has not yet been proved.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="The_Basic_Algorithm.html" title="previous page">The Basic Algorithm</a>
+    <a class='right-next' id="next-link" href="ZZZReferences.html" title="next page">References</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nathan Albin and Pietro Poggi-Corradini<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

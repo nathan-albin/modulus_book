@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Basic Algorithm &#8212; The Modulus Book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dual Families" href="Dual_Families.html" />
+    <link rel="prev" title="Introduction" href="Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">The Modulus Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modulus Basics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Basic Algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dual_Families.html">
+   Dual Families
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ZZZReferences.html">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/The_Basic_Algorithm.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nathan-albin/modulus_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FThe_Basic_Algorithm.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/master/The_Basic_Algorithm.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-exterior-point-approach">
+   An exterior point approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spanning-tree-modulus">
+   Example: Spanning tree modulus
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-modulus-of-connecting-paths">
+   Example: Modulus of connecting paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-via-modulus">
+   Example: Via modulus
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-a-union-of-families">
+   Example: A union of families
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-basic-algorithm">
+<h1>The Basic Algorithm<a class="headerlink" href="#the-basic-algorithm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Recall that finding the modulus of a family <span class="math notranslate nohighlight">\(\Gamma\)</span> with usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> requires solving the optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+\text{minimize}\quad&amp;\mathcal{E}_{p,\sigma}(\rho)\\
+\text{subject to}\quad&amp;\rho\ge 0\\
+&amp;\mathcal{N}\rho\ge \mathbf{1}.
+\end{split}
+\end{split}\]</div>
+<p>In the case that <span class="math notranslate nohighlight">\(G\)</span> is a relatively small graph and <span class="math notranslate nohighlight">\(\Gamma\)</span> is a relatively small family, this can be done by directly using any standard convex optimization solver.  The <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> function in <code class="docutils literal notranslate"><span class="pre">modulus_tools/basic_algorithm.py</span></code> demonstrates this technique.</p>
+<p>However, for many graphs and families of interest, the <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is too large to compute and store on any reasonable computer.  As an example, consider the following graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3810312</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_1_0.png" src="_images/The_Basic_Algorithm_1_0.png" />
+</div>
+</div>
+<p>Suppose we want to compute the modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span>, where <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of all spanning trees of <span class="math notranslate nohighlight">\(G\)</span>.  Using Kirchhoff’s matrix tree theorem, we can compute the number of spanning trees from the spectrum of <span class="math notranslate nohighlight">\(G\)</span>’s Laplacian matrix.  Rather than compute the number exactly in this case, the following code will give a fairly accurate approximation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># get the eigenvalues</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">laplacian_spectrum</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># take the product of the positive eigenvalues and</span>
+<span class="c1"># divide by |V|</span>
+<span class="n">num_trees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;G has </span><span class="si">{}</span><span class="s1"> edges&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;G has approximately </span><span class="si">{:.3e}</span><span class="s1"> trees&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_trees</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>G has 796 edges
+G has approximately 1.359e+138 trees
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is typical of a large number of modulus problems: <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> has dimensions <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> with <span class="math notranslate nohighlight">\(|\Gamma|\gg|E|\)</span>.  In such cases, there is an approach that seems to work quite well in many cases.</p>
+</div>
+<div class="section" id="an-exterior-point-approach">
+<h2>An exterior point approach<a class="headerlink" href="#an-exterior-point-approach" title="Permalink to this headline">¶</a></h2>
+<p>The basic exterior point approach was first described in <a class="bibtex reference internal" href="ZZZReferences.html#albin2017modulusfamilieswalks" id="id1">[ASGPC17]</a> and takes advantage of two important properties of modulus.  The first is a property called <em><span class="math notranslate nohighlight">\(\Gamma\)</span>-monotonicity</em>: If <span class="math notranslate nohighlight">\(\Gamma'\subseteq\Gamma\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Mod}_{p,\sigma}(\Gamma')\le\text{Mod}_{p,\sigma}(\Gamma).
+\]</div>
+<p>This is a simple consequence of the fact that if</p>
+<div class="math notranslate nohighlight">
+\[
+\text{if}\quad\ell_\rho(\gamma)\ge 1\quad\forall\gamma\in\Gamma\quad\text{then}\quad
+\ell_\rho(\gamma)\ge 1\quad\forall\gamma\in\Gamma'.
+\]</div>
+<p>The second property is related to scaling properties of the length function <span class="math notranslate nohighlight">\(\ell_\rho\)</span> and of the energy <span class="math notranslate nohighlight">\(\mathcal{E}_{p,\sigma}\)</span>.  If <span class="math notranslate nohighlight">\(\rho'\in\mathbb{R}^E_{\ge 0}\)</span> an optimal density for <span class="math notranslate nohighlight">\(\text{Mod}_{p,\sigma}(\Gamma')\)</span> with <span class="math notranslate nohighlight">\(\Gamma'\subseteq\Gamma\)</span> and if</p>
+<div class="math notranslate nohighlight">
+\[
+\ell_{\rho'}(\Gamma) := \min_{\gamma\in\Gamma}\ell_{\rho'}(\gamma) = \alpha &gt; 0,
+\]</div>
+<p>then <span class="math notranslate nohighlight">\(\tilde{\rho}=\alpha^{-1}\rho'\)</span> has is admissible for <span class="math notranslate nohighlight">\(\text{Mod}_{p,\sigma}(\Gamma)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\ell_{\tilde{\rho}}(\gamma) = \alpha^{-1}\ell_{\rho'}(\gamma) \ge \alpha^{-1}\min_{\gamma\in\Gamma}\ell_{\rho'}(\gamma) = 1.
+\]</div>
+<p>This provides an upper bound on modulus:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Mod}_{p,\sigma}(\Gamma) \le \mathcal{E}_{p,\sigma}(\tilde{\rho})
+=\kappa_p(\alpha)\mathcal{E}_{p,\sigma}(\rho') = 
+\kappa_p(\alpha)\text{Mod}_{p,\sigma}(\Gamma'),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\kappa_p(\alpha) :=
+\begin{cases}
+    \alpha^{-p}&amp;\text{if }1\le p&lt;\infty,\\
+    \alpha^{-1}&amp;\text{if }p=\infty.
+\end{cases}
+\end{split}\]</div>
+<p>Thus, if we can find a <span class="math notranslate nohighlight">\(\Gamma'\subseteq\Gamma\)</span> and corresponding optimal density <span class="math notranslate nohighlight">\(\rho'\)</span> for <span class="math notranslate nohighlight">\(\text{Mod}_{p,\sigma}(\Gamma')\)</span> such that <span class="math notranslate nohighlight">\(\ell_{\rho'}(\gamma)\ge 1-\epsilon_{\text{tol}}\)</span>, then we know that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Mod}_{p,\sigma}(\Gamma') \le \text{Mod}_{p,\sigma}(\Gamma) \le 
+\kappa_p((1-\epsilon_{\text{tol}})^{-1})\text{Mod}_{p,\sigma}(\Gamma').
+\]</div>
+<p>In pseudocode, the basic algorithm for modulus can be written as follows.</p>
+<pre>
+rho' = 0
+Gamma' = {}
+while True:
+    gamma' = shortest(rho')
+    if length(rho', gamma') > 1 - tol:
+        return rho'
+    add gamma to Gamma
+    rho' = optimal_density(Gamma')
+</pre>
+<p>As proved in <a class="bibtex reference internal" href="ZZZReferences.html#albin2017modulusfamilieswalks" id="id2">[ASGPC17]</a>, this algorithm is guaranteed to produce an approximation <span class="math notranslate nohighlight">\(\rho'\approx\tilde{\rho}\)</span> with error controlled by the tolerance <code class="docutils literal notranslate"><span class="pre">tol</span></code>.</p>
+<p>The algorithm relies on two external subroutines: <code class="docutils literal notranslate"><span class="pre">shortest</span></code> and <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code>.  <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code> is a function like <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> that finds (an approximation of) an optimal density for the modulus of the family <span class="math notranslate nohighlight">\(\Gamma'\)</span>.  As long as <span class="math notranslate nohighlight">\(|\Gamma'|\ll|\Gamma|\)</span>, this will be much cheaper than solving the full modulus problem.</p>
+<p>The second external subroutine is the function <code class="docutils literal notranslate"><span class="pre">shortest</span></code>.  This function should take as its input a density <span class="math notranslate nohighlight">\(\rho'\)</span> and return as its output an object <span class="math notranslate nohighlight">\(\gamma'\in\Gamma\)</span> satisfying</p>
+<div class="math notranslate nohighlight">
+\[
+\ell_{\rho'}(\gamma') = \min_{\gamma\in\Gamma'}\ell_{\rho'}(\gamma).
+\]</div>
+<p>In principle, this amounts to finding the smallest entry in the vector <span class="math notranslate nohighlight">\(\mathcal{N}\rho'\)</span> which, of course, would be undesirable to do brute-force since the entire purpose of this discussion is what to do when <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is too large to compute and hold in memory.  Fortunately, for many interesting families of objects, there exist algorithms much more efficient than brute force.  Examples include Kruskal’s algorithm for spanning trees and Dijkstra’s algorithm for connecting paths.</p>
+<p>Assuming we are able to find an efficient implementation of <code class="docutils literal notranslate"><span class="pre">shortest</span></code>, then, the basic algorithm proceeds by growing the family <span class="math notranslate nohighlight">\(\Gamma'\)</span> by one object on each iteration.  This is equivalent to growing its usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}'\)</span> by one row on each iteration.  Provided the algorithm can converge before <span class="math notranslate nohighlight">\(|\Gamma'|\)</span> grows too large, it will be much more efficient to solve this sequence of modulus problems on small subfamilies than to solve the full modulus problem.  There are, of course, some fairly efficient ways to update <span class="math notranslate nohighlight">\(\rho'\)</span> from one iteration to the next, but for moderately sized graphs like the example above, it’s also not too bad to simply re-optimize each time a row is added to <span class="math notranslate nohighlight">\(\mathcal{N}'\)</span>.  The function <code class="docutils literal notranslate"><span class="pre">modulus</span></code> in <code class="docutils literal notranslate"><span class="pre">modulus_tools/basic_algorithm.py</span></code> demonstrates the approach.  This function can be made quite general; since the <code class="docutils literal notranslate"><span class="pre">shortest</span></code> and <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code> subproblems are outsourced, there’s not much to do besides a little bookkeeping and, if desired, some logging or output operations.</p>
+</div>
+<div class="section" id="example-spanning-tree-modulus">
+<h2>Example: Spanning tree modulus<a class="headerlink" href="#example-spanning-tree-modulus" title="Permalink to this headline">¶</a></h2>
+<p>The following code cell shows the application of the <code class="docutils literal notranslate"><span class="pre">modulus</span></code> function to the spanning tree modulus problem from the beginning of the chapter.  Note that the algorithm can compute modulus to within a reasonable tolerance using only a tiny fraction of the rows of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>.  This code uses the <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> function we saw before along with a <code class="docutils literal notranslate"><span class="pre">MinimumSpanningTree</span></code> class defined in <code class="docutils literal notranslate"><span class="pre">modulus_tools/families/networkx_families.py</span></code>.  This class provides a simple implementation of <code class="docutils literal notranslate"><span class="pre">shortest</span></code> when <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of spanning trees.  An object of this class has a NetworkX graph attached.  Calling the object like a function has the effect of running Kruskal’s algorithm, with the given <span class="math notranslate nohighlight">\(\rho'\)</span> and returning the minimum spanning tree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulus_tools.basic_algorithm</span> <span class="kn">import</span> <span class="n">matrix_modulus</span><span class="p">,</span> <span class="n">modulus</span>
+<span class="kn">from</span> <span class="nn">modulus_tools.families.networkx_families</span> <span class="kn">import</span> <span class="n">MinimumSpanningTree</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+<span class="n">mst</span> <span class="o">=</span> <span class="n">MinimumSpanningTree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">mod</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">modulus</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">matrix_modulus</span><span class="p">,</span> <span class="n">mst</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;modulus =&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.03365733565982248
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a visualization of the values of <span class="math notranslate nohighlight">\(\rho^*\)</span> on the graph.  Notice the large groups of edges with the same color.  This is not an accident.  This phenomenon was explained in <a class="bibtex reference internal" href="ZZZReferences.html#albin2018fairestedgeusage" id="id3">[ACH+18]</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_9_0.png" src="_images/The_Basic_Algorithm_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-modulus-of-connecting-paths">
+<h2>Example: Modulus of connecting paths<a class="headerlink" href="#example-modulus-of-connecting-paths" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s consider the modulus of another family.  Consider the family <span class="math notranslate nohighlight">\(\Gamma=\Gamma(S,T)\)</span> of paths connecting one set of nodes <span class="math notranslate nohighlight">\(S\)</span> (shown in blue below) to another set of nodes <span class="math notranslate nohighlight">\(T\)</span> (shown in red).  We call such a family a <em>connecting family of paths</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">grid_2d_graph</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(),</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_11_0.png" src="_images/The_Basic_Algorithm_11_0.png" />
+</div>
+</div>
+<p>In order to compute the modulus of this family, all we need to do is replace the <code class="docutils literal notranslate"><span class="pre">MinimumSpanningTree</span></code> object with a <code class="docutils literal notranslate"><span class="pre">ShortestConnectingPath</span></code> object, as shown below.  This object is essentially a wrapper for Dijkstra’s algorithm for computing the distance between to sets of points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulus_tools.families.networkx_families</span> <span class="kn">import</span> <span class="n">ShortestConnectingPath</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+<span class="n">shortest</span> <span class="o">=</span><span class="n">ShortestConnectingPath</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">mod</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">modulus</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">matrix_modulus</span><span class="p">,</span> <span class="n">shortest</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;modulus =&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.6823787085087479
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below, we plot the graph again with edges colored according to the value of <span class="math notranslate nohighlight">\(\rho^*\)</span>.  Light blue edges have small <span class="math notranslate nohighlight">\(\rho\)</span> values while magenta edges have higher <span class="math notranslate nohighlight">\(\rho\)</span> value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_15_0.png" src="_images/The_Basic_Algorithm_15_0.png" />
+</div>
+</div>
+<p>It can be a little hard for the eye to make sense of the previous plot.  An alternative is the following.  It turns out that, for families of connecting families of walks, the modulus problem is equivalent to a flow problem on a resistor network.  (Technically, a nonlinear resistor network if <span class="math notranslate nohighlight">\(p\ne 2\)</span>.)  Details can be found in <a class="bibtex reference internal" href="ZZZReferences.html#albin2015modulusgraphsas" id="id4">[ABP+15]</a>.  In the present context, this means that there exists a <em>vertex potential</em> <span class="math notranslate nohighlight">\(\phi:V\to\mathbb{R}\)</span> satisfying <span class="math notranslate nohighlight">\(\phi=0\)</span> on the blue nodes, <span class="math notranslate nohighlight">\(\phi=1\)</span> on the red nodes and</p>
+<div class="math notranslate nohighlight">
+\[
+    \rho*(e) = |\phi(u)-\phi(v)|\qquad\text{for every }e = \{u,v\}\in E.
+\]</div>
+<p>Knowing this, it is possible to recover <span class="math notranslate nohighlight">\(\phi(v)\)</span> for any <span class="math notranslate nohighlight">\(v\in V\)</span> using the formula</p>
+<div class="math notranslate nohighlight">
+\[
+    \phi(v) = \min_{\gamma}\ell_{\rho^*}(\gamma)
+\]</div>
+<p>where the minimum is taken over paths beginning at an arbitrary blue node and ending at <span class="math notranslate nohighlight">\(v\)</span>.  The following code produces a plot of <span class="math notranslate nohighlight">\(\phi\)</span> that can help in visualizing <span class="math notranslate nohighlight">\(\rho^*\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">potential</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="n">potential</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;rho&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">potential</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_17_0.png" src="_images/The_Basic_Algorithm_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-via-modulus">
+<h2>Example: Via modulus<a class="headerlink" href="#example-via-modulus" title="Permalink to this headline">¶</a></h2>
+<p>Now imagine we identify three disjoint sets of nodes <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(M\)</span>.  For example, in the following figure <span class="math notranslate nohighlight">\(S\)</span> comprises the blue nodes, <span class="math notranslate nohighlight">\(T\)</span> the red nodes and <span class="math notranslate nohighlight">\(M\)</span> the green.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_19_0.png" src="_images/The_Basic_Algorithm_19_0.png" />
+</div>
+</div>
+<p>Consider the family of objects <span class="math notranslate nohighlight">\(\gamma\)</span> that consist of taking an arbitrary path <span class="math notranslate nohighlight">\(\gamma_1\)</span> from <span class="math notranslate nohighlight">\(S\)</span> to <span class="math notranslate nohighlight">\(M\)</span> and concatenating an arbitrary path <span class="math notranslate nohighlight">\(\gamma_2\)</span> from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(T\)</span>.  That is,</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma = \Gamma(S,T;M) := \left\{\gamma_1\gamma_2 : \gamma_1\in\Gamma(S,M),\;\gamma_2\in\Gamma(M,T)\right\}.
+\]</div>
+<p>We define the usage matrix on such a concatenation as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{N}(\gamma_1\gamma_2,e) = \mathcal{N}(\gamma_1,e) + \mathcal{N}(\gamma_2,e) =
+\begin{cases}
+0 &amp; \text{if }e\notin\gamma_1\cup\gamma_2,\\
+2 &amp; \text{if }e\in\gamma_1\cap\gamma_2,\\
+1 &amp; \text{otherwise}.
+\end{cases}
+\end{split}\]</div>
+<p>Since we can find the shortest object in <span class="math notranslate nohighlight">\(\Gamma(S,M)\)</span> and the shortest in <span class="math notranslate nohighlight">\(\Gamma(M,T)\)</span>, we can find the shortest object in their “sum” by combining these.  The class <code class="docutils literal notranslate"><span class="pre">SumShortest</span></code> in <code class="docutils literal notranslate"><span class="pre">modulus_tools/families/family_operators.py</span></code> is designed for such a case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulus_tools.families.family_operators</span> <span class="kn">import</span> <span class="n">SumShortest</span>
+
+<span class="n">shortest1</span> <span class="o">=</span><span class="n">ShortestConnectingPath</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<span class="n">shortest2</span> <span class="o">=</span><span class="n">ShortestConnectingPath</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">shortest</span> <span class="o">=</span> <span class="n">SumShortest</span><span class="p">([</span><span class="n">shortest1</span><span class="p">,</span> <span class="n">shortest2</span><span class="p">])</span>
+
+<span class="n">mod</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">modulus</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">matrix_modulus</span><span class="p">,</span> <span class="n">shortest</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;modulus =&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.46413692899426456
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below we can see the values of <span class="math notranslate nohighlight">\(\rho^*\)</span> on the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_23_0.png" src="_images/The_Basic_Algorithm_23_0.png" />
+</div>
+</div>
+<p>Although the concept of “potential” for this family isn’t quite as straightforward, for visualization it is perfectly reasonable to define a function <span class="math notranslate nohighlight">\(\phi(v)\)</span> based on <span class="math notranslate nohighlight">\(v\)</span>’s <span class="math notranslate nohighlight">\(\rho^*\)</span>-distance from, say, the set <span class="math notranslate nohighlight">\(M\)</span>.  The code below shows what that looks like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">potential</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="n">potential</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;rho&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">potential</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_25_0.png" src="_images/The_Basic_Algorithm_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-a-union-of-families">
+<h2>Example: A union of families<a class="headerlink" href="#example-a-union-of-families" title="Permalink to this headline">¶</a></h2>
+<p>As a final example for this chapter, consider the family <span class="math notranslate nohighlight">\(\Gamma=\Gamma(S_1,T_1)\cup\Gamma(S_2,T_2)\)</span> consisting of the collection of all paths that either connect a blue node to a red node or connect a green node to a yellow node in the following figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">]</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S1</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T1</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S2</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T2</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_27_0.png" src="_images/The_Basic_Algorithm_27_0.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">UnionShortest</span></code> class in in <code class="docutils literal notranslate"><span class="pre">modulus_tools/families/family_operators.py</span></code> handles such families.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulus_tools.families.family_operators</span> <span class="kn">import</span> <span class="n">UnionShortest</span>
+
+<span class="n">shortest1</span> <span class="o">=</span> <span class="n">ShortestConnectingPath</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">S1</span><span class="p">,</span> <span class="n">T1</span><span class="p">)</span>
+<span class="n">shortest2</span> <span class="o">=</span> <span class="n">ShortestConnectingPath</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+
+<span class="n">union_shortest</span> <span class="o">=</span> <span class="n">UnionShortest</span><span class="p">([</span><span class="n">shortest1</span><span class="p">,</span> <span class="n">shortest2</span><span class="p">])</span>
+<span class="n">mod</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">modulus</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">matrix_modulus</span><span class="p">,</span> <span class="n">union_shortest</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;modulus =&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.9904214231370128
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a visualization of <span class="math notranslate nohighlight">\(\rho^*\)</span> on the edges.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S1</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T1</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">S2</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">T2</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_31_0.png" src="_images/The_Basic_Algorithm_31_0.png" />
+</div>
+</div>
+<p>For comparison, the following two plots show <span class="math notranslate nohighlight">\(\rho^*\)</span>-distance to blue and to green respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">potential1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">potential2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;rho&#39;</span><span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;rho&#39;</span><span class="p">)</span>
+    <span class="n">potential1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+    <span class="n">potential2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">potential1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">potential2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/The_Basic_Algorithm_33_0.png" src="_images/The_Basic_Algorithm_33_0.png" />
+<img alt="_images/The_Basic_Algorithm_33_1.png" src="_images/The_Basic_Algorithm_33_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="Dual_Families.html" title="next page">Dual Families</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nathan Albin and Pietro Poggi-Corradini<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
