@@ -1,4 +1,23 @@
+#######################################################################################
 # book settings
-title: The Modulus Book
-author: Nathan Albin and Pietro Poggi-Corradini
-copyright: "2020"
+title                   : The Modulus Book
+author                  : Nathan Albin and Pietro Poggi-Corradini
+copyright               : "2020"
+
+#######################################################################################
+# HTML settings
+html:
+  use_edit_page_button   : true
+  use_repository_button  : true
+  use_issues_button      : true
+
+#######################################################################################
+# launch settings
+launch_buttons:
+  binder_url             : ""
+  colab_url              : ""
+
+#######################################################################################
+# repository settings
+repository:
+  url                    : "https://github.com/nathan-albin/modulus_book"
