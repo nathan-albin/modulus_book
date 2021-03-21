@@ -3,7 +3,9 @@
 title                   : The Modulus Book
 author                  : Nathan Albin and Pietro Poggi-Corradini
 copyright               : "2020"
-exclude_patterns        : [_build, README.md, "**.ipynb_checkpoints"]
+exclude_patterns        : [_build, README.md, "**.ipynb_checkpoints", env]
+bibtex_bibfiles         :
+    - References.bib
 
 #######################################################################################
 # HTML settings
@@ -23,4 +25,4 @@ launch_buttons:
 repository:
   url                    : https://github.com/nathan-albin/modulus_book
   path_to_book           : ""
-  branch                 : master
+  branch                 : main
