@@ -5,7 +5,7 @@ The purpose of this book is to provide the reader with a brief introduction to t
 The easiest way to read the book is in HTML form.  A current copy of the book can be found [here](https://nathan-albin.github.io/modulus_book/).
 
 ## Running the code
-In order to run the code for yourself, you'll need a Python environment.  The current version of the book is developed using pip + virtualenv tool to manage the environment.  Package requirements are included in the file `requirements.txt` and can be installed in a virtual environment with pip (`pip install -r requirements.txt`).  If you have some other way of managing your Python environment, then you'll want to look at `requirements.txt` for a list of important packages.  These include
+In order to run the code for yourself, you'll need a Python environment.  The current version of the book is developed using pip + virtualenv to manage the environment.  Package requirements are included in the file `requirements.txt` and can be installed in a virtual environment with pip (`pip install -r requirements.txt`).  If you have some other way of managing your Python environment, then you'll want to look at `requirements.txt` for a list of important packages.  These include
 - python3
 - jupyter
 - networkx
