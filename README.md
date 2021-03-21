@@ -23,4 +23,4 @@ In order to build the book from source, you'll need to have your system configur
 
 The book can be pushed to the GitHub Pages branch `gh-pages` using the command 
 
-```ghp-import -n build/html```
+```ghp-import -n _build/html```
