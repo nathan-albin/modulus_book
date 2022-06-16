@@ -67,7 +67,7 @@ nbformat==5.1.2
 nest-asyncio==1.5.1
 nested-lookup==0.2.22
 networkx==2.5
-notebook==6.2.0
+notebook==6.4.12
 numpy==1.20.1
 osqp==0.6.2.post0
 packaging==20.3
