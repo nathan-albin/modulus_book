@@ -1,291 +1,407 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Intro to Modulus &#8212; The Modulus Book</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Intro_to_Modulus';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Basic Algorithm" href="The_Basic_Algorithm.html" />
     <link rel="prev" title="Introduction" href="Introduction.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
   
   
-  <h1 class="site-logo" id="site-title">The Modulus Book</h1>
   
+  
+  
+    <p class="title logo__title">The Modulus Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulus Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Modulus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="The_Basic_Algorithm.html">The Basic Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dual_Families.html">Dual Families</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Modulus Basics
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Intro to Modulus
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="The_Basic_Algorithm.html">
-   The Basic Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Dual_Families.html">
-   Dual Families
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="ZZZReferences.html">
-   References
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book/edit/main/Intro_to_Modulus.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FIntro_to_Modulus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Intro_to_Modulus.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Intro_to_Modulus.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/nathan-albin/modulus_book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FIntro_to_Modulus.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/main/Intro_to_Modulus.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
 </div>
+              
+              
 
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to Modulus</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#families-of-objects">
-   Families of objects
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-the-family-of-triangles">
-     Example: the family of triangles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-a-family-of-simple-paths">
-     Example: a family of simple paths
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#admissible-densities-everybody-pays-a-dollar">
-   Admissible densities: “Everybody pays a dollar”
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-densities-and-triangles">
-     Example: densities and triangles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-densities-and-paths">
-     Example: densities and paths
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modulus-of-a-family">
-   Modulus of a family
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-triangle-modulus">
-     Example: triangle modulus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-path-modulus">
-     Example: path modulus
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-to-from-here">
-   Where to from here?
-  </a>
- </li>
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#families-of-objects">Families of objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-family-of-triangles">Example: the family of triangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-family-of-simple-paths">Example: a family of simple paths</a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-densities-everybody-pays-a-dollar">Admissible densities: “Everybody pays a dollar”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-densities-and-triangles">Example: densities and triangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-densities-and-paths">Example: densities and paths</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus-of-a-family">Modulus of a family</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-triangle-modulus">Example: triangle modulus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-path-modulus">Example: path modulus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-from-here">Where to from here?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="intro-to-modulus">
-<h1>Intro to Modulus<a class="headerlink" href="#intro-to-modulus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="families-of-objects">
-<h2>Families of objects<a class="headerlink" href="#families-of-objects" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-modulus">
+<h1>Intro to Modulus<a class="headerlink" href="#intro-to-modulus" title="Permalink to this heading">#</a></h1>
+<section id="families-of-objects">
+<h2>Families of objects<a class="headerlink" href="#families-of-objects" title="Permalink to this heading">#</a></h2>
 <p>The goal of this book is to introduce a collection of Python routines to explore the concept of the modulus of a family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> on a discrete graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.  Roughly speaking, modulus is a framework for quantifying the “richness” of the family <span class="math notranslate nohighlight">\(\Gamma\)</span>.  Before we define modulus, therefore, it make sense to consider what is meant by a family of objects.  As will become apparent in later chapters, there aren’t many obvious constraints on the type of graph considered.  For example, the graph may be finite or infinite, it may be directed or undirected, it may even contain parallel edges or self loops.  Modulus is a flexible framework that can be adapted to many settings.  However, for developing an intuition about modulus, it helps to consider something concrete; for now, consider a finite, simple, undirected graph <span class="math notranslate nohighlight">\(G\)</span>.</p>
 <p>Similarly, there is a great deal of flexibility in what is considered to be an “objects”.  A good starting point is to consider <span class="math notranslate nohighlight">\(\Gamma\)</span> to be some collection of subsets of edges. That is, <span class="math notranslate nohighlight">\(\Gamma\subseteq 2^E\)</span>.  While it is certainly possible to define more complicated notions of “object,” families of edge subsets are already sufficiently rich to demonstrate the modulus framework.  For now, then, we shall think of <span class="math notranslate nohighlight">\(\Gamma\)</span> as a collection of subsets of edges.  Some possible choices to keep in mind are:</p>
 <ul class="simple">
@@ -305,8 +421,8 @@
 0 &amp; \text{otherwise}.
 \end{cases}
 \end{split}\]</div>
-<div class="section" id="example-the-family-of-triangles">
-<h3>Example: the family of triangles<a class="headerlink" href="#example-the-family-of-triangles" title="Permalink to this headline">¶</a></h3>
+<section id="example-the-family-of-triangles">
+<h3>Example: the family of triangles<a class="headerlink" href="#example-the-family-of-triangles" title="Permalink to this heading">#</a></h3>
 <p>The following code cell produces the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix for the family of triangles on a particular graph.  Notice that, in order to write <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> as a two-dimensional array of numbers, we need to choose some ordering for the edges and objects.  These orderings can be chosen arbitrarily, as long as they are used consistently.</p>
 <p>The code also draws the three triangles of the graph.  The labels on the edges show the edge enumeration.  The figure on the left corresponds to the first row of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>, the middle figure to the second row, and the right figure to the third row.</p>
 <div class="cell docutils container">
@@ -367,12 +483,12 @@
  [0. 1. 0. 1. 0. 0. 1.]]
 </pre></div>
 </div>
-<img alt="_images/Intro_to_Modulus_4_1.png" src="_images/Intro_to_Modulus_4_1.png" />
+<img alt="_images/f387e784f47479ce21a6060ba928095c1b7bfaf34ac5ca7a16b98f53a827b355.png" src="_images/f387e784f47479ce21a6060ba928095c1b7bfaf34ac5ca7a16b98f53a827b355.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-a-family-of-simple-paths">
-<h3>Example: a family of simple paths<a class="headerlink" href="#example-a-family-of-simple-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="example-a-family-of-simple-paths">
+<h3>Example: a family of simple paths<a class="headerlink" href="#example-a-family-of-simple-paths" title="Permalink to this heading">#</a></h3>
 <p>Consider, instead, the family of simple paths that connect the top vertex of the previous graph to the bottom-right vertex.  The following code generates and prints the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix for this family, along with a corresponding series of pictures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -416,13 +532,13 @@
  [0. 0. 1. 1. 1. 0. 0.]]
 </pre></div>
 </div>
-<img alt="_images/Intro_to_Modulus_6_1.png" src="_images/Intro_to_Modulus_6_1.png" />
+<img alt="_images/ebbb0ccb3ed0562daedb017c95afe414265e23ce9eda4ff0bd2c09c8df556694.png" src="_images/ebbb0ccb3ed0562daedb017c95afe414265e23ce9eda4ff0bd2c09c8df556694.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="admissible-densities-everybody-pays-a-dollar">
-<h2>Admissible densities: “Everybody pays a dollar”<a class="headerlink" href="#admissible-densities-everybody-pays-a-dollar" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="admissible-densities-everybody-pays-a-dollar">
+<h2>Admissible densities: “Everybody pays a dollar”<a class="headerlink" href="#admissible-densities-everybody-pays-a-dollar" title="Permalink to this heading">#</a></h2>
 <p>The next step in the definition of modulus is to develop the concept of admissible density.  Suppose we are given a graph <span class="math notranslate nohighlight">\(G\)</span> and the usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> for a family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span>.  In later chapters, we shall see more exotic families of objects whose usage matrices take values other than <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> so, in order to keep the discussion general, we assume that <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> real matrix with non-negative entries.</p>
 <p>A <em>density</em> on <span class="math notranslate nohighlight">\(G\)</span> is a non-negative vector <span class="math notranslate nohighlight">\(\rho\in\mathbb{R}^E_{\ge 0}\)</span> that gives some non-negative value <span class="math notranslate nohighlight">\(\rho(e)\)</span> to every edge <span class="math notranslate nohighlight">\(e\in E\)</span>.  It can be helpful to think of <span class="math notranslate nohighlight">\(\rho(e)\)</span> as a cost per unit usage incurred by using edge <span class="math notranslate nohighlight">\(e\)</span>.  This induces on each <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span> a <em>total usage cost</em>, often referred to as the <em><span class="math notranslate nohighlight">\(\rho\)</span>-length</em> of <span class="math notranslate nohighlight">\(\gamma\)</span> for historical reasons, defined as</p>
 <div class="math notranslate nohighlight">
@@ -436,8 +552,8 @@
 \]</div>
 <p>Now we are ready to define admissibility.  A density <span class="math notranslate nohighlight">\(\rho\in\mathbb{R}^E_{\ge 0}\)</span> is said to be <em>admissible for <span class="math notranslate nohighlight">\(\Gamma\)</span></em> if <span class="math notranslate nohighlight">\(\ell_{\rho}(\gamma)\ge 1\)</span> for every <span class="math notranslate nohighlight">\(\gamma\in\Gamma\)</span>.  That is: everybody pays a dollar.</p>
 <p>Since <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> matrix and <span class="math notranslate nohighlight">\(\rho\)</span> is an <span class="math notranslate nohighlight">\(E\)</span>-vector, the product <span class="math notranslate nohighlight">\(\mathcal{N}\rho\)</span> is a <span class="math notranslate nohighlight">\(\Gamma\)</span>-vector whose <span class="math notranslate nohighlight">\(\gamma\)</span> entry is <span class="math notranslate nohighlight">\(\ell_\rho(\gamma)\)</span>.  Thus, it is often convenient to use the shorthand notation <span class="math notranslate nohighlight">\(\mathcal{N}\rho\ge\mathbf{1}\)</span> to indicated that <span class="math notranslate nohighlight">\(\rho\)</span> is admissible.  In this context, the inequality is interpreted element-wise.</p>
-<div class="section" id="example-densities-and-triangles">
-<h3>Example: densities and triangles<a class="headerlink" href="#example-densities-and-triangles" title="Permalink to this headline">¶</a></h3>
+<section id="example-densities-and-triangles">
+<h3>Example: densities and triangles<a class="headerlink" href="#example-densities-and-triangles" title="Permalink to this heading">#</a></h3>
 <p>Returning to the example of the family of triangles, the following code generates a set of densities and checks for admissibility.  Each row in the figure produced represents a density.  In each row, the triangles are colored either green or red depending on whether or not the <span class="math notranslate nohighlight">\(\rho\)</span>-length of that triangle is at least 1.  A density is admissible for the triangles if all triangles in that row are colored green.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -480,14 +596,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Intro_to_Modulus_9_0.png" src="_images/Intro_to_Modulus_9_0.png" />
-<img alt="_images/Intro_to_Modulus_9_1.png" src="_images/Intro_to_Modulus_9_1.png" />
-<img alt="_images/Intro_to_Modulus_9_2.png" src="_images/Intro_to_Modulus_9_2.png" />
+<img alt="_images/311730c8f382a4c18549164eeffba0965bd6a2858cd4c4c579ef81ded98b1696.png" src="_images/311730c8f382a4c18549164eeffba0965bd6a2858cd4c4c579ef81ded98b1696.png" />
+<img alt="_images/7b6b9485ae1f9e6d89cc629dfafbb8969f8efe0c9f199d78561534b67d80c3b0.png" src="_images/7b6b9485ae1f9e6d89cc629dfafbb8969f8efe0c9f199d78561534b67d80c3b0.png" />
+<img alt="_images/5f8a1d81116be618aac2603e45784749f36ad44f4493611d9b7305921013bdcd.png" src="_images/5f8a1d81116be618aac2603e45784749f36ad44f4493611d9b7305921013bdcd.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-densities-and-paths">
-<h3>Example: densities and paths<a class="headerlink" href="#example-densities-and-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="example-densities-and-paths">
+<h3>Example: densities and paths<a class="headerlink" href="#example-densities-and-paths" title="Permalink to this heading">#</a></h3>
 <p>The code below does the same thing, but for the path family we considered earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,15 +648,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Intro_to_Modulus_11_0.png" src="_images/Intro_to_Modulus_11_0.png" />
-<img alt="_images/Intro_to_Modulus_11_1.png" src="_images/Intro_to_Modulus_11_1.png" />
-<img alt="_images/Intro_to_Modulus_11_2.png" src="_images/Intro_to_Modulus_11_2.png" />
+<img alt="_images/6d341e1e3edea32755f7a0b0c9dc67de7797d6f7e079b7051d407c9c6ca1b2cc.png" src="_images/6d341e1e3edea32755f7a0b0c9dc67de7797d6f7e079b7051d407c9c6ca1b2cc.png" />
+<img alt="_images/f610d26d3efc59bdc3443ec5c4718b493497a79319129fb0e029f49bc33fc84a.png" src="_images/f610d26d3efc59bdc3443ec5c4718b493497a79319129fb0e029f49bc33fc84a.png" />
+<img alt="_images/85dd141a94de72f6fb9c8043d7fd2a13090e85d4dd8c4b3ce532c900170507ff.png" src="_images/85dd141a94de72f6fb9c8043d7fd2a13090e85d4dd8c4b3ce532c900170507ff.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="modulus-of-a-family">
-<h2>Modulus of a family<a class="headerlink" href="#modulus-of-a-family" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="modulus-of-a-family">
+<h2>Modulus of a family<a class="headerlink" href="#modulus-of-a-family" title="Permalink to this heading">#</a></h2>
 <p>Once the graph <span class="math notranslate nohighlight">\(G\)</span>, the family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> and the usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> are defined, the definition of modulus is easy.  (Interpretations of modulus are more complex and are discussed in later chapters of this book.)  In optimization notation, the <em>modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span></em> is defined to be the value of the problem</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -561,8 +677,8 @@
 \end{split}\]</div>
 <p>That is, the <span class="math notranslate nohighlight">\(p\)</span>-energy of a density is just the sum of its <span class="math notranslate nohighlight">\(p\)</span>th powers on all edges of the graph if <span class="math notranslate nohighlight">\(p&lt;\infty\)</span> and is the maximum value of <span class="math notranslate nohighlight">\(\rho\)</span> over all edges if <span class="math notranslate nohighlight">\(p=\infty\)</span>.</p>
 <p>The value of the optimization problem above is referred to as the <em><span class="math notranslate nohighlight">\(p\)</span>-modulus of the family <span class="math notranslate nohighlight">\(\Gamma\)</span></em> and is denoted <span class="math notranslate nohighlight">\(\text{Mod}_p(\Gamma)\)</span>.  If <span class="math notranslate nohighlight">\(\rho=\rho^*\)</span> is a minimizer, then <span class="math notranslate nohighlight">\(\rho^*\)</span> is called an <em>optimal density</em> or <em>extremal density</em>.</p>
-<div class="section" id="example-triangle-modulus">
-<h3>Example: triangle modulus<a class="headerlink" href="#example-triangle-modulus" title="Permalink to this headline">¶</a></h3>
+<section id="example-triangle-modulus">
+<h3>Example: triangle modulus<a class="headerlink" href="#example-triangle-modulus" title="Permalink to this heading">#</a></h3>
 <p>Modulus, as defined above, is an example of a convex optimization problem.  Therefore, at least for small graphs, modulus can be computed using any software tool that can solve convex optimization problems.  An example of a function for computing modulus in this way is <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> found in <code class="docutils literal notranslate"><span class="pre">modulus_tools/basic_algorithm.py</span></code>.  Given the <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> matrix along with the exponent <span class="math notranslate nohighlight">\(p\)</span>, this function finds a numerical approximation the modulus along with an optimal <span class="math notranslate nohighlight">\(\rho^*\)</span>.  The code below computes the modulus of triangles on our example graph for a few different values of <span class="math notranslate nohighlight">\(p\)</span>.  The value <span class="math notranslate nohighlight">\(\text{Mod}_p(\Gamma)\)</span> is printed above each plot, while the values of the optimal density <span class="math notranslate nohighlight">\(\rho^*\)</span> are shown on the edges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,12 +705,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Intro_to_Modulus_14_0.png" src="_images/Intro_to_Modulus_14_0.png" />
+<img alt="_images/9c9db63eea91fd2960099ef7feea87d426fe1ab493a69fcbee5e209d6c01a456.png" src="_images/9c9db63eea91fd2960099ef7feea87d426fe1ab493a69fcbee5e209d6c01a456.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-path-modulus">
-<h3>Example: path modulus<a class="headerlink" href="#example-path-modulus" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="example-path-modulus">
+<h3>Example: path modulus<a class="headerlink" href="#example-path-modulus" title="Permalink to this heading">#</a></h3>
 <p>The code above requires only a small modification if we wish to compute the modulus of the family of paths from top to lower right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,13 +733,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Intro_to_Modulus_16_0.png" src="_images/Intro_to_Modulus_16_0.png" />
+<img alt="_images/9b7433047a1840563ca25e51af38583b72e77320754c02d7bb8a36189be7f2ff.png" src="_images/9b7433047a1840563ca25e51af38583b72e77320754c02d7bb8a36189be7f2ff.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="where-to-from-here">
-<h2>Where to from here?<a class="headerlink" href="#where-to-from-here" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="where-to-from-here">
+<h2>Where to from here?<a class="headerlink" href="#where-to-from-here" title="Permalink to this heading">#</a></h2>
 <p>Modulus is better thought of as a general framework for understanding families of objects than as a single rigid theory.  The ideas presented above can be generalized in many different and interesting ways, only some of which are covered in the chapters that follow.  Before moving on, however, we will introduce two useful generalizations.  First, if <span class="math notranslate nohighlight">\(G\)</span> is a weighted graph with nonnegative weights <span class="math notranslate nohighlight">\(\sigma\in\mathbb{R}^E_{&gt;0}\)</span>, it is common to define a <em>weighted <span class="math notranslate nohighlight">\(p\)</span>-modulus</em>, <span class="math notranslate nohighlight">\(\text{Mod}_{p,\sigma}(\Gamma)\)</span>, wherein the energy <span class="math notranslate nohighlight">\(\mathcal{E}_p\)</span> is replaced by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -646,12 +762,12 @@
 <p>The remainder of this book delves more deeply into modulus, its various interpretations, and algorithms for computing it.</p>
 <p>Other resources for understanding modulus and its applications can be found in the following papers.</p>
 <ul class="simple">
-<li><p><strong>General theory:</strong> <span id="id1">[<a class="reference internal" href="ZZZReferences.html#id2"><span>ABP+15</span></a>,<a class="reference internal" href="ZZZReferences.html#id4"><span>ASGPC17</span></a>]</span></p></li>
-<li><p><strong>Interpretations of modulus:</strong> <span id="id2">[<a class="reference internal" href="ZZZReferences.html#id3"><span>APC16</span></a>,<a class="reference internal" href="ZZZReferences.html#id7"><span>ACFPC19</span></a>,<a class="reference internal" href="ZZZReferences.html#id5"><span>ACH+18</span></a>]</span></p></li>
-<li><p><strong>Applications of modulus:</strong> <span id="id3">[<a class="reference internal" href="ZZZReferences.html#id6"><span>AFPC18</span></a>,<a class="reference internal" href="ZZZReferences.html#id9"><span>SPCSA16</span></a>,<a class="reference internal" href="ZZZReferences.html#id10"><span>SPCAS17</span></a>,<a class="reference internal" href="ZZZReferences.html#id11"><span>SMJPC+18</span></a>]</span></p></li>
+<li><p><strong>General theory:</strong> <span id="id1">[<a class="reference internal" href="References.html#id2" title="Nathan Albin, Megan Brunner, Roberto Perez, Pietro Poggi-Corradini, and Natalie Wiens. Modulus on graphs as a generalization of standard graph theoretic quantities. Conformal Geometry and Dynamics, 19(13):298–317, 2015. URL: https://arxiv.org/abs/1504.02418, doi:10.1090/ecgd/287.">ABP+15</a>, <a class="reference internal" href="References.html#id4" title="Nathan Albin, Faryad Sahneh, Max Goering, and Pietro Poggi-Corradini. Modulus of families of walks on graphs. 2017. URL: https://arxiv.org/abs/1401.7640, doi:10.1090/conm/699/14080.">ASGPC17</a>]</span></p></li>
+<li><p><strong>Interpretations of modulus:</strong> <span id="id2">[<a class="reference internal" href="References.html#id7" title="Nathan Albin, Jason Clemens, Nethali Fernando, and Pietro Poggi-Corradini. Blocking duality for p-modulus on networks and applications. Annali di Matematica Pura ed Applicata, 198(3):973–999, nov 2019. URL: https://arxiv.org/abs/1612.00435, doi:10.1007/s10231-018-0806-0.">ACFPC19</a>, <a class="reference internal" href="References.html#id5" title="Nathan Albin, Jason Clemens, Derek Hoare, Pietro Poggi-Corradini, Brandon Sit, and Sarah Tymochko. Fairest edge usage and minimum expected overlap for random spanning trees. 2018. URL: https://arxiv.org/abs/1805.10112.">ACH+18</a>, <a class="reference internal" href="References.html#id3" title="Nathan Albin and Pietro Poggi-Corradini. Minimal subfamilies and the probabilistic interpretation for modulus on graphs. The Journal of Analysis, 24(2):183–208, 2016. URL: https://arxiv.org/abs/1605.08462, doi:10.1007/s41478-016-0002-9.">APC16</a>]</span></p></li>
+<li><p><strong>Applications of modulus:</strong> <span id="id3">[<a class="reference internal" href="References.html#id6" title="Nathan Albin, Nethali Fernando, and Pietro Poggi-Corradini. Modulus metrics on networks. Discrete &amp; Continuous Dynamical Systems - B, 2018. URL: http://aimsciences.org//article/id/e84e04ba-e6fc-493f-8b82-eb1a2f7dfa6b, doi:10.3934/dcdsb.2018161.">AFPC18</a>, <a class="reference internal" href="References.html#id11" title="Heman Shakeri, Behnaz Moradi-Jamei, Pietro Poggi-Corradini, Nathan Albin, and Caterina Scoglio. Generalization of effective conductance centrality for egonetworks. Physica A: Statistical Mechanics and its Applications, 511:127–138, 2018. doi:https://doi.org/10.1016/j.physa.2018.07.039.">SMJPC+18</a>, <a class="reference internal" href="References.html#id10" title="Heman Shakeri, Pietro Poggi-Corradini, Nathan Albin, and Caterina Scoglio. Network clustering and community detection using modulus of families of loops. Physical Review E, 95(1):012316, 2017. doi:10.1103/PhysRevE.95.012316.">SPCAS17</a>, <a class="reference internal" href="References.html#id9" title="Heman Shakeri, Pietro Poggi-Corradini, Caterina Scoglio, and Nathan Albin. Generalized network measures based on modulus of families of walks. Journal of Computational and Applied Mathematics, 307:307–318, 2016. doi:10.1016/j.cam.2016.01.027.">SPCSA16</a>]</span></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -665,7 +781,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -673,38 +789,120 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="The_Basic_Algorithm.html" title="next page">The Basic Algorithm</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Nathan Albin and Pietro Poggi-Corradini<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="The_Basic_Algorithm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Basic Algorithm</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#families-of-objects">Families of objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-family-of-triangles">Example: the family of triangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-family-of-simple-paths">Example: a family of simple paths</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-densities-everybody-pays-a-dollar">Admissible densities: “Everybody pays a dollar”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-densities-and-triangles">Example: densities and triangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-densities-and-paths">Example: densities and paths</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus-of-a-family">Modulus of a family</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-triangle-modulus">Example: triangle modulus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-path-modulus">Example: path modulus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-from-here">Where to from here?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nathan Albin and Pietro Poggi-Corradini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

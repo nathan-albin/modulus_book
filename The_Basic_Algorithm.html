@@ -1,265 +1,397 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>The Basic Algorithm &#8212; The Modulus Book</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'The_Basic_Algorithm';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dual Families" href="Dual_Families.html" />
     <link rel="prev" title="Intro to Modulus" href="Intro_to_Modulus.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
   
   
-  <h1 class="site-logo" id="site-title">The Modulus Book</h1>
   
+  
+  
+    <p class="title logo__title">The Modulus Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulus Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Modulus.html">Intro to Modulus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Basic Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dual_Families.html">Dual Families</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Modulus Basics
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro_to_Modulus.html">
-   Intro to Modulus
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   The Basic Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Dual_Families.html">
-   Dual Families
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="ZZZReferences.html">
-   References
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book/edit/main/The_Basic_Algorithm.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FThe_Basic_Algorithm.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/The_Basic_Algorithm.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/The_Basic_Algorithm.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/nathan-albin/modulus_book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/nathan-albin/modulus_book/issues/new?title=Issue%20on%20page%20%2FThe_Basic_Algorithm.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/nathan-albin/modulus_book/edit/main/The_Basic_Algorithm.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
 </div>
+              
+              
 
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Basic Algorithm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-exterior-point-approach">
-   An exterior point approach
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-spanning-tree-modulus">
-   Example: Spanning tree modulus
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-modulus-of-connecting-paths">
-   Example: Modulus of connecting paths
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-via-modulus">
-   Example: Via modulus
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-a-union-of-families">
-   Example: A union of families
-  </a>
- </li>
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-exterior-point-approach">An exterior point approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-spanning-tree-modulus">Example: Spanning tree modulus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-modulus-of-connecting-paths">Example: Modulus of connecting paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-via-modulus">Example: Via modulus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-union-of-families">Example: A union of families</a></li>
 </ul>
-
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="the-basic-algorithm">
-<h1>The Basic Algorithm<a class="headerlink" href="#the-basic-algorithm" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-basic-algorithm">
+<h1>The Basic Algorithm<a class="headerlink" href="#the-basic-algorithm" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Recall that finding the modulus of a family <span class="math notranslate nohighlight">\(\Gamma\)</span> with usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> requires solving the optimization problem</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -285,7 +417,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_1_0.png" src="_images/The_Basic_Algorithm_1_0.png" />
+<img alt="_images/bfb5f9351948af47c4ebae37b01fe515905abeec5e375ae30327a4ee81433c4e.png" src="_images/bfb5f9351948af47c4ebae37b01fe515905abeec5e375ae30327a4ee81433c4e.png" />
 </div>
 </div>
 <p>Suppose we want to compute the modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span>, where <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of all spanning trees of <span class="math notranslate nohighlight">\(G\)</span>.  Using Kirchhoff’s matrix tree theorem, we can compute the number of spanning trees from the spectrum of <span class="math notranslate nohighlight">\(G\)</span>’s Laplacian matrix.  Rather than compute the number exactly in this case, the following code will give a fairly accurate approximation.</p>
@@ -313,10 +445,10 @@ G has approximately 1.359e+138 trees
 </div>
 </div>
 <p>This is typical of a large number of modulus problems: <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> has dimensions <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> with <span class="math notranslate nohighlight">\(|\Gamma|\gg|E|\)</span>.  In such cases, there is an approach that seems to work quite well in many cases.</p>
-</div>
-<div class="section" id="an-exterior-point-approach">
-<h2>An exterior point approach<a class="headerlink" href="#an-exterior-point-approach" title="Permalink to this headline">¶</a></h2>
-<p>The basic exterior point approach was first described in <span id="id1">[<a class="reference internal" href="ZZZReferences.html#id4"><span>ASGPC17</span></a>]</span> and takes advantage of two important properties of modulus.  The first is a property called <em><span class="math notranslate nohighlight">\(\Gamma\)</span>-monotonicity</em>: If <span class="math notranslate nohighlight">\(\Gamma'\subseteq\Gamma\)</span> then</p>
+</section>
+<section id="an-exterior-point-approach">
+<h2>An exterior point approach<a class="headerlink" href="#an-exterior-point-approach" title="Permalink to this heading">#</a></h2>
+<p>The basic exterior point approach was first described in <span id="id1">[<a class="reference internal" href="References.html#id4" title="Nathan Albin, Faryad Sahneh, Max Goering, and Pietro Poggi-Corradini. Modulus of families of walks on graphs. 2017. URL: https://arxiv.org/abs/1401.7640, doi:10.1090/conm/699/14080.">ASGPC17</a>]</span> and takes advantage of two important properties of modulus.  The first is a property called <em><span class="math notranslate nohighlight">\(\Gamma\)</span>-monotonicity</em>: If <span class="math notranslate nohighlight">\(\Gamma'\subseteq\Gamma\)</span> then</p>
 <div class="math notranslate nohighlight">
 \[
 \text{Mod}_{p,\sigma}(\Gamma')\le\text{Mod}_{p,\sigma}(\Gamma).
@@ -370,7 +502,7 @@ while True:
     add gamma to Gamma
     rho' = optimal_density(Gamma')
 </pre>
-<p>As proved in <span id="id2">[<a class="reference internal" href="ZZZReferences.html#id4"><span>ASGPC17</span></a>]</span>, this algorithm is guaranteed to produce an approximation <span class="math notranslate nohighlight">\(\rho'\approx\tilde{\rho}\)</span> with error controlled by the tolerance <code class="docutils literal notranslate"><span class="pre">tol</span></code>.</p>
+<p>As proved in <span id="id2">[<a class="reference internal" href="References.html#id4" title="Nathan Albin, Faryad Sahneh, Max Goering, and Pietro Poggi-Corradini. Modulus of families of walks on graphs. 2017. URL: https://arxiv.org/abs/1401.7640, doi:10.1090/conm/699/14080.">ASGPC17</a>]</span>, this algorithm is guaranteed to produce an approximation <span class="math notranslate nohighlight">\(\rho'\approx\tilde{\rho}\)</span> with error controlled by the tolerance <code class="docutils literal notranslate"><span class="pre">tol</span></code>.</p>
 <p>The algorithm relies on two external subroutines: <code class="docutils literal notranslate"><span class="pre">shortest</span></code> and <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code>.  <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code> is a function like <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> that finds (an approximation of) an optimal density for the modulus of the family <span class="math notranslate nohighlight">\(\Gamma'\)</span>.  As long as <span class="math notranslate nohighlight">\(|\Gamma'|\ll|\Gamma|\)</span>, this will be much cheaper than solving the full modulus problem.</p>
 <p>The second external subroutine is the function <code class="docutils literal notranslate"><span class="pre">shortest</span></code>.  This function should take as its input a density <span class="math notranslate nohighlight">\(\rho'\)</span> and return as its output an object <span class="math notranslate nohighlight">\(\gamma'\in\Gamma\)</span> satisfying</p>
 <div class="math notranslate nohighlight">
@@ -379,9 +511,9 @@ while True:
 \]</div>
 <p>In principle, this amounts to finding the smallest entry in the vector <span class="math notranslate nohighlight">\(\mathcal{N}\rho'\)</span> which, of course, would be undesirable to do brute-force since the entire purpose of this discussion is what to do when <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is too large to compute and hold in memory.  Fortunately, for many interesting families of objects, there exist algorithms much more efficient than brute force.  Examples include Kruskal’s algorithm for spanning trees and Dijkstra’s algorithm for connecting paths.</p>
 <p>Assuming we are able to find an efficient implementation of <code class="docutils literal notranslate"><span class="pre">shortest</span></code>, then, the basic algorithm proceeds by growing the family <span class="math notranslate nohighlight">\(\Gamma'\)</span> by one object on each iteration.  This is equivalent to growing its usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}'\)</span> by one row on each iteration.  Provided the algorithm can converge before <span class="math notranslate nohighlight">\(|\Gamma'|\)</span> grows too large, it will be much more efficient to solve this sequence of modulus problems on small subfamilies than to solve the full modulus problem.  There are, of course, some fairly efficient ways to update <span class="math notranslate nohighlight">\(\rho'\)</span> from one iteration to the next, but for moderately sized graphs like the example above, it’s also not too bad to simply re-optimize each time a row is added to <span class="math notranslate nohighlight">\(\mathcal{N}'\)</span>.  The function <code class="docutils literal notranslate"><span class="pre">modulus</span></code> in <code class="docutils literal notranslate"><span class="pre">modulus_tools/basic_algorithm.py</span></code> demonstrates the approach.  This function can be made quite general; since the <code class="docutils literal notranslate"><span class="pre">shortest</span></code> and <code class="docutils literal notranslate"><span class="pre">optimal_density</span></code> subproblems are outsourced, there’s not much to do besides a little bookkeeping and, if desired, some logging or output operations.</p>
-</div>
-<div class="section" id="example-spanning-tree-modulus">
-<h2>Example: Spanning tree modulus<a class="headerlink" href="#example-spanning-tree-modulus" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-spanning-tree-modulus">
+<h2>Example: Spanning tree modulus<a class="headerlink" href="#example-spanning-tree-modulus" title="Permalink to this heading">#</a></h2>
 <p>The following code cell shows the application of the <code class="docutils literal notranslate"><span class="pre">modulus</span></code> function to the spanning tree modulus problem from the beginning of the chapter.  Note that the algorithm can compute modulus to within a reasonable tolerance using only a tiny fraction of the rows of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>.  This code uses the <code class="docutils literal notranslate"><span class="pre">matrix_modulus</span></code> function we saw before along with a <code class="docutils literal notranslate"><span class="pre">MinimumSpanningTree</span></code> class defined in <code class="docutils literal notranslate"><span class="pre">modulus_tools/families/networkx_families.py</span></code>.  This class provides a simple implementation of <code class="docutils literal notranslate"><span class="pre">shortest</span></code> when <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of spanning trees.  An object of this class has a NetworkX graph attached.  Calling the object like a function has the effect of running Kruskal’s algorithm, with the given <span class="math notranslate nohighlight">\(\rho'\)</span> and returning the minimum spanning tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -398,12 +530,12 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.0336573620718008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.033657090308619936
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is a visualization of the values of <span class="math notranslate nohighlight">\(\rho^*\)</span> on the graph.  Notice the large groups of edges with the same color.  This is not an accident.  This phenomenon was explained in <span id="id3">[<a class="reference internal" href="ZZZReferences.html#id5"><span>ACH+18</span></a>]</span>.</p>
+<p>Here is a visualization of the values of <span class="math notranslate nohighlight">\(\rho^*\)</span> on the graph.  Notice the large groups of edges with the same color.  This is not an accident.  This phenomenon was explained in <span id="id3">[<a class="reference internal" href="References.html#id5" title="Nathan Albin, Jason Clemens, Derek Hoare, Pietro Poggi-Corradini, Brandon Sit, and Sarah Tymochko. Fairest edge usage and minimum expected overlap for random spanning trees. 2018. URL: https://arxiv.org/abs/1805.10112.">ACH+18</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -412,12 +544,12 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_9_0.png" src="_images/The_Basic_Algorithm_9_0.png" />
+<img alt="_images/14fe8d0710dbb31dd80c33b61e46837026e3b9ebcb54a4a5e82d84be6879b51c.png" src="_images/14fe8d0710dbb31dd80c33b61e46837026e3b9ebcb54a4a5e82d84be6879b51c.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-modulus-of-connecting-paths">
-<h2>Example: Modulus of connecting paths<a class="headerlink" href="#example-modulus-of-connecting-paths" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-modulus-of-connecting-paths">
+<h2>Example: Modulus of connecting paths<a class="headerlink" href="#example-modulus-of-connecting-paths" title="Permalink to this heading">#</a></h2>
 <p>Now let’s consider the modulus of another family.  Consider the family <span class="math notranslate nohighlight">\(\Gamma=\Gamma(S,T)\)</span> of paths connecting one set of nodes <span class="math notranslate nohighlight">\(S\)</span> (shown in blue below) to another set of nodes <span class="math notranslate nohighlight">\(T\)</span> (shown in red).  We call such a family a <em>connecting family of paths</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -434,7 +566,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_11_0.png" src="_images/The_Basic_Algorithm_11_0.png" />
+<img alt="_images/4a35cae8595f3b38b20ab60e3c5d3a0168438281b90586ad7f9407e23d962add.png" src="_images/4a35cae8595f3b38b20ab60e3c5d3a0168438281b90586ad7f9407e23d962add.png" />
 </div>
 </div>
 <p>In order to compute the modulus of this family, all we need to do is replace the <code class="docutils literal notranslate"><span class="pre">MinimumSpanningTree</span></code> object with a <code class="docutils literal notranslate"><span class="pre">ShortestConnectingPath</span></code> object, as shown below.  This object is essentially a wrapper for Dijkstra’s algorithm for computing the distance between to sets of points.</p>
@@ -452,7 +584,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.6823787085149353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.6823788760259244
 </pre></div>
 </div>
 </div>
@@ -468,10 +600,10 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_15_0.png" src="_images/The_Basic_Algorithm_15_0.png" />
+<img alt="_images/547ae160a3aafe5e4a78a3a94e3e497a33dd1b182ac02eabdc95c8ad02aa74fe.png" src="_images/547ae160a3aafe5e4a78a3a94e3e497a33dd1b182ac02eabdc95c8ad02aa74fe.png" />
 </div>
 </div>
-<p>It can be a little hard for the eye to make sense of the previous plot.  An alternative is the following.  It turns out that, for families of connecting families of walks, the modulus problem is equivalent to a flow problem on a resistor network.  (Technically, a nonlinear resistor network if <span class="math notranslate nohighlight">\(p\ne 2\)</span>.)  Details can be found in <span id="id4">[<a class="reference internal" href="ZZZReferences.html#id2"><span>ABP+15</span></a>]</span>.  In the present context, this means that there exists a <em>vertex potential</em> <span class="math notranslate nohighlight">\(\phi:V\to\mathbb{R}\)</span> satisfying <span class="math notranslate nohighlight">\(\phi=0\)</span> on the blue nodes, <span class="math notranslate nohighlight">\(\phi=1\)</span> on the red nodes and</p>
+<p>It can be a little hard for the eye to make sense of the previous plot.  An alternative is the following.  It turns out that, for families of connecting families of walks, the modulus problem is equivalent to a flow problem on a resistor network.  (Technically, a nonlinear resistor network if <span class="math notranslate nohighlight">\(p\ne 2\)</span>.)  Details can be found in <span id="id4">[<a class="reference internal" href="References.html#id2" title="Nathan Albin, Megan Brunner, Roberto Perez, Pietro Poggi-Corradini, and Natalie Wiens. Modulus on graphs as a generalization of standard graph theoretic quantities. Conformal Geometry and Dynamics, 19(13):298–317, 2015. URL: https://arxiv.org/abs/1504.02418, doi:10.1090/ecgd/287.">ABP+15</a>]</span>.  In the present context, this means that there exists a <em>vertex potential</em> <span class="math notranslate nohighlight">\(\phi:V\to\mathbb{R}\)</span> satisfying <span class="math notranslate nohighlight">\(\phi=0\)</span> on the blue nodes, <span class="math notranslate nohighlight">\(\phi=1\)</span> on the red nodes and</p>
 <div class="math notranslate nohighlight">
 \[
     \rho*(e) = |\phi(u)-\phi(v)|\qquad\text{for every }e = \{u,v\}\in E.
@@ -496,12 +628,12 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_17_0.png" src="_images/The_Basic_Algorithm_17_0.png" />
+<img alt="_images/735c57d2a37b8a4391f2d2e3c1f983af7f403c1e66ec5b00fa163a70c0291aea.png" src="_images/735c57d2a37b8a4391f2d2e3c1f983af7f403c1e66ec5b00fa163a70c0291aea.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-via-modulus">
-<h2>Example: Via modulus<a class="headerlink" href="#example-via-modulus" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-via-modulus">
+<h2>Example: Via modulus<a class="headerlink" href="#example-via-modulus" title="Permalink to this heading">#</a></h2>
 <p>Now imagine we identify three disjoint sets of nodes <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(M\)</span>.  For example, in the following figure <span class="math notranslate nohighlight">\(S\)</span> comprises the blue nodes, <span class="math notranslate nohighlight">\(T\)</span> the red nodes and <span class="math notranslate nohighlight">\(M\)</span> the green.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +650,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_19_0.png" src="_images/The_Basic_Algorithm_19_0.png" />
+<img alt="_images/715a4f028abe86737d2bbce0231d75de3b36573bc82f186968fe8e46dadd8c83.png" src="_images/715a4f028abe86737d2bbce0231d75de3b36573bc82f186968fe8e46dadd8c83.png" />
 </div>
 </div>
 <p>Consider the family of objects <span class="math notranslate nohighlight">\(\gamma\)</span> that consist of taking an arbitrary path <span class="math notranslate nohighlight">\(\gamma_1\)</span> from <span class="math notranslate nohighlight">\(S\)</span> to <span class="math notranslate nohighlight">\(M\)</span> and concatenating an arbitrary path <span class="math notranslate nohighlight">\(\gamma_2\)</span> from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(T\)</span>.  That is,</p>
@@ -553,7 +685,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.46413692899426456
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.464137738887024
 </pre></div>
 </div>
 </div>
@@ -570,7 +702,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_23_0.png" src="_images/The_Basic_Algorithm_23_0.png" />
+<img alt="_images/0808e340d8870f6ba3cfd72e2c3538d6f030755155ec1498df3a73de31e84da7.png" src="_images/0808e340d8870f6ba3cfd72e2c3538d6f030755155ec1498df3a73de31e84da7.png" />
 </div>
 </div>
 <p>Although the concept of “potential” for this family isn’t quite as straightforward, for visualization it is perfectly reasonable to define a function <span class="math notranslate nohighlight">\(\phi(v)\)</span> based on <span class="math notranslate nohighlight">\(v\)</span>’s <span class="math notranslate nohighlight">\(\rho^*\)</span>-distance from, say, the set <span class="math notranslate nohighlight">\(M\)</span>.  The code below shows what that looks like.</p>
@@ -588,12 +720,12 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_25_0.png" src="_images/The_Basic_Algorithm_25_0.png" />
+<img alt="_images/0659d38c17fdfb89c2b75774f59b4c9f82765267715a1edc218e507468eefc8a.png" src="_images/0659d38c17fdfb89c2b75774f59b4c9f82765267715a1edc218e507468eefc8a.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-a-union-of-families">
-<h2>Example: A union of families<a class="headerlink" href="#example-a-union-of-families" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-a-union-of-families">
+<h2>Example: A union of families<a class="headerlink" href="#example-a-union-of-families" title="Permalink to this heading">#</a></h2>
 <p>As a final example for this chapter, consider the family <span class="math notranslate nohighlight">\(\Gamma=\Gamma(S_1,T_1)\cup\Gamma(S_2,T_2)\)</span> consisting of the collection of all paths that either connect a blue node to a red node or connect a green node to a yellow node in the following figure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,7 +744,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_27_0.png" src="_images/The_Basic_Algorithm_27_0.png" />
+<img alt="_images/720b050e62976b3fd07c5f55ffad99df129839c3d194ac51a12c07a488454f1b.png" src="_images/720b050e62976b3fd07c5f55ffad99df129839c3d194ac51a12c07a488454f1b.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">UnionShortest</span></code> class in in <code class="docutils literal notranslate"><span class="pre">modulus_tools/families/family_operators.py</span></code> handles such families.</p>
@@ -632,7 +764,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.9904214231438213
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulus = 0.9904264714115945
 </pre></div>
 </div>
 </div>
@@ -650,7 +782,7 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_31_0.png" src="_images/The_Basic_Algorithm_31_0.png" />
+<img alt="_images/74614373ea39a5e86771dc2983dddf408428a27fefedb0b708109cb9e959621f.png" src="_images/74614373ea39a5e86771dc2983dddf408428a27fefedb0b708109cb9e959621f.png" />
 </div>
 </div>
 <p>For comparison, the following two plots show <span class="math notranslate nohighlight">\(\rho^*\)</span>-distance to blue and to green respectively.</p>
@@ -675,12 +807,12 @@ while True:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/The_Basic_Algorithm_33_0.png" src="_images/The_Basic_Algorithm_33_0.png" />
-<img alt="_images/The_Basic_Algorithm_33_1.png" src="_images/The_Basic_Algorithm_33_1.png" />
+<img alt="_images/ddaee6a4240ef0a771d90a0bd610cc5e3abee08fd3d527a7a7bb72d94167898d.png" src="_images/ddaee6a4240ef0a771d90a0bd610cc5e3abee08fd3d527a7a7bb72d94167898d.png" />
+<img alt="_images/488a032bb76b82eb30672bd6f00ae1752173807a4397bedf42e108590f02eeee.png" src="_images/488a032bb76b82eb30672bd6f00ae1752173807a4397bedf42e108590f02eeee.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -694,7 +826,7 @@ while True:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -702,38 +834,110 @@ while True:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="Intro_to_Modulus.html" title="previous page">Intro to Modulus</a>
-    <a class='right-next' id="next-link" href="Dual_Families.html" title="next page">Dual Families</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Nathan Albin and Pietro Poggi-Corradini<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Intro_to_Modulus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Intro to Modulus</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Dual_Families.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dual Families</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-exterior-point-approach">An exterior point approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-spanning-tree-modulus">Example: Spanning tree modulus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-modulus-of-connecting-paths">Example: Modulus of connecting paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-via-modulus">Example: Via modulus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-union-of-families">Example: A union of families</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nathan Albin and Pietro Poggi-Corradini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
