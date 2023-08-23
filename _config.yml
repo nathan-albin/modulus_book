@@ -8,6 +8,11 @@ bibtex_bibfiles         :
     - References.bib
 
 #######################################################################################
+# Execution settings
+execute:
+  stderr_output      : 'remove-warn'
+
+#######################################################################################
 # HTML settings
 html:
   use_edit_page_button   : true
