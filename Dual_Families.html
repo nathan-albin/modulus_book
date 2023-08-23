@@ -388,6 +388,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dual-families">
 <h1>Dual Families<a class="headerlink" href="#dual-families" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cdd</span>
+<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
+<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">algorithms</span> <span class="k">as</span> <span class="n">alg</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>As described in <span id="id1">[<a class="reference internal" href="References.html#id7" title="Nathan Albin, Jason Clemens, Nethali Fernando, and Pietro Poggi-Corradini. Blocking duality for p-modulus on networks and applications. Annali di Matematica Pura ed Applicata, 198(3):973–999, nov 2019. URL: https://arxiv.org/abs/1612.00435, doi:10.1007/s10231-018-0806-0.">ACFPC19</a>]</span>, every family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> has a natural dual family <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span>, called the <em>blocker</em> of <span class="math notranslate nohighlight">\(\Gamma\)</span>.  These families are connected through modulus by the property that</p>
@@ -417,20 +430,6 @@ document.write(`
 \]</div>
 <p>This is a convex set in <span class="math notranslate nohighlight">\(\mathbb{R}^{E}_{\ge 0}\)</span>, defined by finitely many linear inequalities and, therefore, it has a finite set of extreme points.  The dual family <span class="math notranslate nohighlight">\(\hat{\Gamma}\)</span> is simply this set of extreme points, where we again use the representation of objects by their usage vectors.</p>
 <p>On small graphs, the dual family can be computed and visualized using <a class="reference external" href="https://pycddlib.readthedocs.io/en/latest/">pycddlib</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">cdd</span>
-<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
-<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">algorithms</span> <span class="k">as</span> <span class="n">alg</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="example-connecting-paths">
 <h2>Example: Connecting paths<a class="headerlink" href="#example-connecting-paths" title="Permalink to this heading">#</a></h2>

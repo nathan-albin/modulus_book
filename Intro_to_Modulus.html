@@ -400,6 +400,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="intro-to-modulus">
 <h1>Intro to Modulus<a class="headerlink" href="#intro-to-modulus" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="families-of-objects">
 <h2>Families of objects<a class="headerlink" href="#families-of-objects" title="Permalink to this heading">#</a></h2>
 <p>The goal of this book is to introduce a collection of Python routines to explore the concept of the modulus of a family of objects <span class="math notranslate nohighlight">\(\Gamma\)</span> on a discrete graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.  Roughly speaking, modulus is a framework for quantifying the “richness” of the family <span class="math notranslate nohighlight">\(\Gamma\)</span>.  Before we define modulus, therefore, it make sense to consider what is meant by a family of objects.  As will become apparent in later chapters, there aren’t many obvious constraints on the type of graph considered.  For example, the graph may be finite or infinite, it may be directed or undirected, it may even contain parallel edges or self loops.  Modulus is a flexible framework that can be adapted to many settings.  However, for developing an intuition about modulus, it helps to consider something concrete; for now, consider a finite, simple, undirected graph <span class="math notranslate nohighlight">\(G\)</span>.</p>
@@ -427,13 +437,7 @@ document.write(`
 <p>The code also draws the three triangles of the graph.  The labels on the edges show the edge enumeration.  The figure on the left corresponds to the first row of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>, the middle figure to the second row, and the right figure to the third row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">modulus_tools</span> <span class="kn">import</span> <span class="n">demo_graphs</span>
-
-<span class="c1"># the demo graph</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the demo graph</span>
 <span class="n">G</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">demo_graphs</span><span class="o">.</span><span class="n">slashed_house_graph</span><span class="p">()</span>
 
 <span class="c1"># enumerate the edges</span>

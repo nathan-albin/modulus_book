@@ -390,6 +390,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-basic-algorithm">
 <h1>The Basic Algorithm<a class="headerlink" href="#the-basic-algorithm" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Recall that finding the modulus of a family <span class="math notranslate nohighlight">\(\Gamma\)</span> with usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> requires solving the optimization problem</p>
@@ -405,11 +414,7 @@ document.write(`
 <p>However, for many graphs and families of interest, the <span class="math notranslate nohighlight">\(\Gamma\times E\)</span> usage matrix <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is too large to compute and store on any reasonable computer.  As an example, consider the following graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3810312</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3810312</span><span class="p">)</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
@@ -423,9 +428,7 @@ document.write(`
 <p>Suppose we want to compute the modulus of <span class="math notranslate nohighlight">\(\Gamma\)</span>, where <span class="math notranslate nohighlight">\(\Gamma\)</span> is the family of all spanning trees of <span class="math notranslate nohighlight">\(G\)</span>.  Using Kirchhoff’s matrix tree theorem, we can compute the number of spanning trees from the spectrum of <span class="math notranslate nohighlight">\(G\)</span>’s Laplacian matrix.  Rather than compute the number exactly in this case, the following code will give a fairly accurate approximation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># get the eigenvalues</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the eigenvalues</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">laplacian_spectrum</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 
 <span class="c1"># take the product of the positive eigenvalues and</span>
