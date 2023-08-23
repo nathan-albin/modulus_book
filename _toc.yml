@@ -8,4 +8,4 @@ parts:
   - file: Dual_Families
 - caption: References
   chapters:
-  - file: ZZZReferences
+  - file: References
