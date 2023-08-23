@@ -1,11 +1,11 @@
-- file: Introduction
-
-- part: Modulus Basics
+format: jb-book
+root: Introduction
+parts:
+- caption: Modulus Basics
   chapters:
-    - file: Intro_to_Modulus
-    - file: The_Basic_Algorithm
-    - file: Dual_Families
-
-- part: References
+  - file: Intro_to_Modulus
+  - file: The_Basic_Algorithm
+  - file: Dual_Families
+- caption: References
   chapters:
-    - file: ZZZReferences
+  - file: ZZZReferences
