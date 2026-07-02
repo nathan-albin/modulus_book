@@ -1,2 +1,3 @@
 # modulus_book
-Redirect repo for discrete-modulus.
+
+This project has moved to [discrete-modulus](https://github.com/nathan-albin/discrete-modulus).
